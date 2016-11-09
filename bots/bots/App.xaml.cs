@@ -7,8 +7,11 @@ namespace bots
 		public App()
 		{
 			InitializeComponent();
-
-			MainPage = new botsPage();
+			var _controller = new NavigationPage(new botsPage());
+			_controller.BarBackgroundColor = Color.FromHex("#4A004F");
+			_controller.BarTextColor = Color.FromHex("#fafafa");
+			_controller.SetValue(NavigationPage.BarTextColorProperty, Color.White);
+			MainPage = _controller;
 		}
 
 		protected override void OnStart()

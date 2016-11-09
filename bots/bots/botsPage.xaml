@@ -1,4 +1,56 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:bots" x:Class="bots.botsPage">
-	<Label Text="Welcome to Xamarin Forms!" VerticalOptions="Center" HorizontalOptions="Center" />
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" Title="Rens" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:bots;assembly=bots" x:Class="bots.botsPage">
+	 <RelativeLayout>
+    <Image Source="background.png" Opacity="1" Aspect="AspectFill"
+                RelativeLayout.WidthConstraint=
+                  "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                RelativeLayout.HeightConstraint=
+                  "{ConstraintExpression Type=RelativeToParent, Property=Height}"/>
+    <Grid RelativeLayout.WidthConstraint=
+              "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+            RelativeLayout.HeightConstraint=
+              "{ConstraintExpression Type=RelativeToParent, Property=Height}">
+			
+		
+				
+      	<StackLayout VerticalOptions="Fill" Margin="40,30,40,0">
+      		<StackLayout VerticalOptions="CenterAndExpand">
+				<Label TextColor="#fafafa"  FontFamily="OpenSans-Bold" HorizontalTextAlignment="Center">Check de voorwaarden hieronder!</Label>
+				<Label Margin="0,15,0,30" Style="{DynamicResource labelStyle}" TextColor="#fafafa" HorizontalTextAlignment="Center" FontSize="12">Hieronder kunt u de algemene voorwaarden controleren o.b.v de website URL</Label>
+				<StackLayout BackgroundColor="#e0e0e0" >
+		      		<Entry  BackgroundColor="#fafafa"/>
+				</StackLayout>
+
+				<StackLayout Margin="0, 15,0,0">
+					<Button x:Name="zoekbtn" Text="Zoeken"  BorderRadius="0" HeightRequest= "40" BackgroundColor="#E3214F" TextColor="#fafafa" FontSize="18" />
+				</StackLayout>	
+					<Label Margin="0,50,0,0" Text="Geen URL beschikbaar?"  TextColor="#fafafa" HorizontalTextAlignment="Center" FontSize="16" />
+
+				<StackLayout Margin="0, 15,0,0">
+					<Button x:Name="handmatigbtn" Text="Handmatig invoeren" HeightRequest= "40"  BorderRadius="0" BackgroundColor="#E3214F" TextColor="#fafafa" FontSize="18" />
+				</StackLayout>	
+			</StackLayout>
+
+			<StackLayout VerticalOptions="EndAndExpand">	
+				<Image Source="plasbossinadelogo" Margin="0,0,0,40"/>
+					
+			</StackLayout>
+		</StackLayout>
+
+
+			
+			
+    </Grid>
+  </RelativeLayout>        
 </ContentPage>
+
+
+
+
+
+
+
+
+	
+
+

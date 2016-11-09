@@ -1,1 +1,16 @@
-﻿<Properties StartupConfiguration="{381DD650-3204-43CF-ACFB-0AAD7E23F3E7}|Default" />
+﻿<Properties StartupConfiguration="{381DD650-3204-43CF-ACFB-0AAD7E23F3E7}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/AppDelegate.cs">
+    <Files>
+      <File FileName="bots/App.xaml.cs" Line="13" Column="75" />
+      <File FileName="iOS/Info.plist" />
+      <File FileName="iOS/AppDelegate.cs" Line="17" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.bots.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.4A54FCD8-3D74-42FE-9F77-553A6ABF77E2" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.bots.Droid PreferredExecutionTarget="Android.n6" />
+</Properties>
