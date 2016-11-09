@@ -18,7 +18,7 @@ class TestingController extends Controller
           'message'=> 'Connection succesful. You have reached the standard GET route',
         ];
 
-        return response()->json($data)->header('Content-Type', 'text/plain');
+        return response()->json($data)->header('Content-Type', 'application/json; charset=utf-8');
     }
 
     /**
@@ -33,7 +33,7 @@ class TestingController extends Controller
         'message'=> 'Connection succesful. You have reached the standard CREATE route',
       ];
 
-      return response()->json($data)->header('Content-Type', 'application/json');
+      return response()->json($data)->header('Content-Type', 'application/json; charset=utf-8');
     }
 
     /**
@@ -50,7 +50,7 @@ class TestingController extends Controller
         'requestData'=> $request->toArray(),
       ];
 
-      return response()->json($data)->header('Content-Type', 'text/plain');
+      return response()->json($data)->header('Content-Type', 'application/json; charset=utf-8');
     }
 
     /**
@@ -67,7 +67,7 @@ class TestingController extends Controller
         'id'=> $id,
       ];
 
-      return response()->json($data)->header('Content-Type', 'text/plain');
+      return response()->json($data)->header('Content-Type', 'application/json; charset=utf-8');
     }
 
     /**
@@ -84,7 +84,7 @@ class TestingController extends Controller
         'id'=> $id,
       ];
 
-      return response()->json($data)->header('Content-Type', 'text/plain');
+      return response()->json($data)->header('Content-Type', 'application/json; charset=utf-8');
     }
 
     /**
@@ -103,7 +103,7 @@ class TestingController extends Controller
         'requestData'=> $request->toArray(),
       ];
 
-      return response()->json($data)->header('Content-Type', 'text/plain');
+      return response()->json($data)->header('Content-Type', 'application/json; charset=utf-8');
     }
 
     /**
@@ -120,6 +120,6 @@ class TestingController extends Controller
         'id'=> $id,
       ];
 
-      return response()->json($data)->header('Content-Type', 'text/plain');
+      return response()->json($data)->header('Content-Type', 'application/json; charset=utf-8');
     }
 }
