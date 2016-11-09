@@ -20,9 +20,10 @@ class ScannerController extends Controller
 
     public function legalTextCheck(Request $request) {
       // retrieve legalText from Url
+      $url = $request->url;
       $legalText = LegalText::textByUrl($request->url);
 
-      return $legalText;
+      return response()->json(["legalText" => $legalText]);
     }
 
     /**
