@@ -1,0 +1,44 @@
+$main: #57004F; //4A004F;
+$sub: #DB0337;
+$white: #FFFFFF;
+
+$large: 75px;
+
+.container { width: 960px; }
+
+header.header { background-color: $main; }
+header.header .row { padding-top: 10px; }
+header.header img { max-width: 300px; }
+
+.block-large { padding: $large 0;}
+.block-white { background-color: $white; }
+
+section {
+  padding: $large 0;
+  background-image: url('../images/bgApp.jpg');
+}
+
+.static-height { height: 600px; }
+.result-height {
+  @extend .static-height;
+  @extend .shadow;
+}
+.breadcrumbs-height {
+  margin-bottom: 75px;
+  @extend .shadow;
+}
+
+ol.breadcrumb { background: transparent; margin-bottom: 0; padding: 10px 0; }
+#char { margin-top: $large; }
+
+.shadow {
+  -webkit-box-shadow: 0px 0px 31px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 31px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 31px 0px rgba(0,0,0,0.75);
+}
+
+footer.footer {
+  padding: 50px 0;
+  background-color: $sub;
+  color: $white;
+}

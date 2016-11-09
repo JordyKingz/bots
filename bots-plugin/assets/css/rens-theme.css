@@ -1,0 +1,47 @@
+.container {
+  width: 960px; }
+
+header.header {
+  background-color: #57004F; }
+
+header.header .row {
+  padding-top: 10px; }
+
+header.header img {
+  max-width: 300px; }
+
+.block-large {
+  padding: 75px 0; }
+
+.block-white {
+  background-color: #FFFFFF; }
+
+section {
+  padding: 75px 0;
+  background-image: url("../images/bgApp.jpg"); }
+
+.static-height, .result-height {
+  height: 600px; }
+
+.breadcrumbs-height {
+  margin-bottom: 75px; }
+
+ol.breadcrumb {
+  background: transparent;
+  margin-bottom: 0;
+  padding: 10px 0; }
+
+#char {
+  margin-top: 75px; }
+
+.shadow, .result-height, .breadcrumbs-height {
+  -webkit-box-shadow: 0px 0px 31px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 31px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 31px 0px rgba(0, 0, 0, 0.75); }
+
+footer.footer {
+  padding: 50px 0;
+  background-color: #DB0337;
+  color: #FFFFFF; }
+
+/*# sourceMappingURL=rens-theme.css.map */
