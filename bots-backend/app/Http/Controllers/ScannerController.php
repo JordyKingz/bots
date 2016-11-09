@@ -13,7 +13,7 @@ class ScannerController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
