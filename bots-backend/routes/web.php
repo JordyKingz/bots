@@ -21,5 +21,7 @@ Route::group(['prefix' => 'api'], function () {
 
     Route::resource('test-connection', 'TestingController');
 
+    Route::post('legal-text-check', 'ScannerController@legalTextCheck');
+
   });
 });

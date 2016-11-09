@@ -13,7 +13,11 @@ class ScannerController extends Controller
      */
     public function index()
     {
-        
+
+    }
+
+    public function legalTextCheck(Request $request) {
+      return response()->json($request);
     }
 
     /**
