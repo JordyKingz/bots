@@ -25,3 +25,5 @@ Route::group(['prefix' => 'api', 'middleware' => 'cors'], function () {
 
   });
 });
+
+Route::get('bol-legal-doc', 'DebuggingController@bolLegalText');

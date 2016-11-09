@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\HtmlString;
+use App\Models\LegalText;
 
 class ScannerController extends Controller
 {
@@ -17,7 +19,10 @@ class ScannerController extends Controller
     }
 
     public function legalTextCheck(Request $request) {
-      return response()->json($request);
+      // retrieve legalText from Url
+      $legalText = LegalText::textByUrl($request->url);
+
+      return $legalText;
     }
 
     /**
