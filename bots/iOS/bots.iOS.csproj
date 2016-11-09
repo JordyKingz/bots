@@ -118,6 +118,7 @@
     <Folder Include="Resources\" />
     <Folder Include="Assets.xcassets\plasbossinadelogo.imageset\" />
     <Folder Include="Resources\Fonts\" />
+    <Folder Include="CustomRenderer\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -130,6 +131,9 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="CustomRenderer\SearchEntryRenderer.cs" />
+    <Compile Include="CustomRenderer\CustomLabelRenderer.cs" />
+    <Compile Include="CustomRenderer\h1LabelRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\background.png" />

@@ -15,24 +15,24 @@
 				
       	<StackLayout VerticalOptions="Fill" Margin="40,30,40,0">
       		<StackLayout VerticalOptions="CenterAndExpand">
-				<Label TextColor="#fafafa"  FontFamily="OpenSans-Bold" HorizontalTextAlignment="Center">Check de voorwaarden hieronder!</Label>
-				<Label Margin="0,15,0,30" Style="{DynamicResource labelStyle}" TextColor="#fafafa" HorizontalTextAlignment="Center" FontSize="12">Hieronder kunt u de algemene voorwaarden controleren o.b.v de website URL</Label>
-				<StackLayout BackgroundColor="#e0e0e0" >
-		      		<Entry  BackgroundColor="#fafafa"/>
+				<local:h1Label TextColor="#fafafa"  FontFamily="OpenSans-Bold" StyleId="OpenSans-Bold" HorizontalTextAlignment="Center" Text="Check de voorwaarden hieronder!" FontSize="16"/>
+<!--				<local:CustomLabel Margin="0,15,0,30" TextColor="#fafafa" HorizontalTextAlignment="Center" FontSize="14" Text="Hieronder kunt u de algemene voorwaarden controleren o.b.v de website URL" />-->
+				<StackLayout BackgroundColor="#e0e0e0" Margin="0,30,0,15" >
+		      		<local:SearchEntry HeightRequest = "40" HorizontalTextAlignment="Center" Placeholder="URL..." BackgroundColor="#fafafa"/>
 				</StackLayout>
 
 				<StackLayout Margin="0, 15,0,0">
-					<Button x:Name="zoekbtn" Text="Zoeken"  BorderRadius="0" HeightRequest= "40" BackgroundColor="#E3214F" TextColor="#fafafa" FontSize="18" />
+					<local:CustomButton x:Name="zoekbtn" Text="Zoeken"  BorderRadius="0" HeightRequest= "40" BackgroundColor="#E3214F" TextColor="#fafafa" FontSize="18" />
 				</StackLayout>	
-					<Label Margin="0,50,0,0" Text="Geen URL beschikbaar?"  TextColor="#fafafa" HorizontalTextAlignment="Center" FontSize="16" />
+					<local:CustomLabel Margin="0,50,0,0" Text="Geen URL beschikbaar?"  TextColor="#fafafa" HorizontalTextAlignment="Center" FontSize="16" />
 
 				<StackLayout Margin="0, 15,0,0">
-					<Button x:Name="handmatigbtn" Text="Handmatig invoeren" HeightRequest= "40"  BorderRadius="0" BackgroundColor="#E3214F" TextColor="#fafafa" FontSize="18" />
+					<local:CustomButton x:Name="handmatigbtn" Text="Handmatig invoeren" HeightRequest= "40"  BorderRadius="0" BackgroundColor="#E3214F" TextColor="#fafafa" FontSize="18" />
 				</StackLayout>	
 			</StackLayout>
 
 			<StackLayout VerticalOptions="EndAndExpand">	
-				<Image Source="plasbossinadelogo" Margin="0,0,0,40"/>
+				<Image Source="plasbossinadelogo" WidthRequest="150" Margin="0,0,0,40"/>
 					
 			</StackLayout>
 		</StackLayout>

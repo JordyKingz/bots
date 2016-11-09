@@ -1,13 +1,14 @@
 ﻿<Properties StartupConfiguration="{381DD650-3204-43CF-ACFB-0AAD7E23F3E7}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/AppDelegate.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="bots/App.xaml.cs">
     <Files>
-      <File FileName="bots/App.xaml.cs" Line="13" Column="75" />
-      <File FileName="iOS/Info.plist" />
-      <File FileName="iOS/AppDelegate.cs" Line="17" Column="1" />
+      <File FileName="iOS/Main.cs" Line="17" Column="1" />
+      <File FileName="iOS/CustomRenderer/h1LabelRenderer.cs" Line="19" Column="29" />
+      <File FileName="iOS/CustomRenderer/CustomLabelRenderer.cs" Line="21" Column="44" />
+      <File FileName="bots/App.xaml.cs" Line="17" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.bots.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.4A54FCD8-3D74-42FE-9F77-553A6ABF77E2" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
+  <MonoDevelop.Ide.ItemProperties.bots.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -11,6 +11,9 @@ namespace bots
 			_controller.BarBackgroundColor = Color.FromHex("#4A004F");
 			_controller.BarTextColor = Color.FromHex("#fafafa");
 			_controller.SetValue(NavigationPage.BarTextColorProperty, Color.White);
+
+
+
 			MainPage = _controller;
 		}
 

@@ -3,12 +3,14 @@
 	<Application.Resources>
 		<!-- Application resource dictionary -->
 		<ResourceDictionary>
-			<Style  TargetType="Label">
+			<Style  TargetType="Label" >
 	                <Setter Property="FontFamily"
 	                        Value="OpenSans-Regular" />
 					<Setter Property="TextColor" Value="#fafafa" />
-	                
+
 			</Style>
+
+
 		</ResourceDictionary>
 	</Application.Resources>
 </Application>
