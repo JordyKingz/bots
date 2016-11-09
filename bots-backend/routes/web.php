@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 
-Route::group(['prefix' => 'api'], function () {
+Route::group(['prefix' => 'api', 'middleware' => 'cors'], function () {
   Route::group(['prefix' => 'v1'], function () {
 
     Route::resource('test-connection', 'TestingController');
