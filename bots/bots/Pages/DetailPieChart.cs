@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using CrossPieCharts.FormsPlugin.Abstractions;
 using Xamarin.Forms;
 
@@ -10,11 +12,65 @@ namespace bots
 		{
 		}
 
+		public class problem
+		{
+			public string name;
+			public int highWeight;
+		}
 
 
 		public ContentPage GetPageWithPieChart()
 		{
 			// The root page of your application
+			List<App.Data> data = App.dat;
+
+			var countProblems = 12 - data.Count;
+			var oranjePercentage = 0;
+			Decimal groenPercentage = (countProblems / 12m) * 100m;
+
+
+			List<problem> allProblems = new List<problem>();
+
+			for (var i = 0; i < data.Count; i++)
+			{
+				
+				problem prob = new problem();
+				List<int> weights = new List<int>();
+				for (var a = 0; a < data[i].problems.Count; a++)
+				{
+					
+
+					weights.Add(Convert.ToInt32(data[i].problems[a].weight));
+
+
+				}
+				var max = weights.Max();
+				//System.Diagnostics.Debug.WriteLine(max);
+				prob.name = data[i].name;
+				prob.highWeight = max;
+				allProblems.Add(prob);
+
+
+
+
+			}
+
+			foreach (problem prob in allProblems)
+			{
+				if (prob.highWeight < 66 && prob.highWeight > 0)
+				{
+					System.Diagnostics.Debug.WriteLine(prob.highWeight);
+					oranjePercentage = oranjePercentage + 1;
+				}
+			}
+
+			Decimal orange = (oranjePercentage / 12m) * 100m;
+			Decimal opvallend = orange;
+			Decimal roodPercentge = 100 - groenPercentage - orange;
+			orange = orange + groenPercentage;
+
+
+			//System.Diagnostics.Debug.WriteLine(oranjePercentage);
 
 			var contentPage = new ContentPage
 			{
@@ -34,7 +90,7 @@ namespace bots
 							{
 
 								new Grid
-									{  Padding = new Thickness(20,20,20,20), 
+									{  Padding = new Thickness(20,20,20,20),
 									Children =
 									{
 										new CrossPieChartView
@@ -47,8 +103,7 @@ namespace bots
 											BackgroundColor = Color.White
 										},
 										new CrossPieChartView
-										{
-											Progress = 80,
+										{Progress = Convert.ToInt32( orange),
 											ProgressColor = Color.FromHex("#Ffa500"),
 											ProgressBackgroundColor = Color.Transparent,
 											StrokeThickness = Device.OnPlatform(10, 20, 80),
@@ -56,8 +111,7 @@ namespace bots
 											BackgroundColor = Color.Transparent
 										},
 										new CrossPieChartView
-										{
-											Progress = 60,
+											{   Progress = Convert.ToInt32( groenPercentage),
 											ProgressColor = Color.Green,
 											ProgressBackgroundColor = Color.Transparent,
 											StrokeThickness = Device.OnPlatform(10, 20, 80),
@@ -66,13 +120,21 @@ namespace bots
 										},
 										new Label
 										{
-											Text = "60%",
+												Text = Convert.ToInt32(groenPercentage) +"%",
 											Font = Font.BoldSystemFontOfSize(NamedSize.Large),
 											FontSize = 70,
 											VerticalOptions = LayoutOptions.Center,
 											HorizontalOptions = LayoutOptions.Center,
 											TextColor = Color.Green
-										}
+										},new CrossPieChartView
+										{
+											Progress = 0,
+											ProgressColor = Color.Red,
+											ProgressBackgroundColor = Color.Transparent,
+											StrokeThickness = Device.OnPlatform(10, 20, 80),
+											Radius = Device.OnPlatform(100, 180, 160),
+											BackgroundColor = Color.Transparent
+										},
 									}
 							},
 									new StackLayout
@@ -90,7 +152,7 @@ namespace bots
 												{
 													new Label
 													{
-														Text = "Privacy",
+														Text = "Veilig",
 														Font = Font.BoldSystemFontOfSize(NamedSize.Large),
 														FontSize = 14,
 														VerticalOptions = LayoutOptions.Center,
@@ -99,12 +161,12 @@ namespace bots
 													},
 													new Label
 													{
-														Text = "60%",
+														Text = Convert.ToInt32(groenPercentage) + "%",
 														Font = Font.BoldSystemFontOfSize(NamedSize.Large),
 														FontSize = 14,
 														VerticalOptions = LayoutOptions.Center,
 														HorizontalOptions = LayoutOptions.Center,
-														TextColor = Color.FromHex("#FFa500")
+														TextColor = Color.Green
 													}
 												},
 
@@ -123,7 +185,7 @@ namespace bots
 												{
 													new Label
 													{
-														Text = "Garantie",
+														Text = "Opvallend",
 														Font = Font.BoldSystemFontOfSize(NamedSize.Large),
 														FontSize = 14,
 														VerticalOptions = LayoutOptions.Center,
@@ -132,12 +194,12 @@ namespace bots
 													},
 													new Label
 													{
-														Text = "90%",
+														Text = Convert.ToInt32(opvallend) + "%",
 														Font = Font.BoldSystemFontOfSize(NamedSize.Large),
 														FontSize = 14,
 														VerticalOptions = LayoutOptions.Center,
 														HorizontalOptions = LayoutOptions.Center,
-														TextColor = Color.Green
+														TextColor = Color.FromHex("#FFa500")
 													}
 												}
 
@@ -150,7 +212,7 @@ namespace bots
 												{
 													new Label
 													{
-														Text = "Aansprakelijkheid",
+														Text = "Risicovol",
 														Font = Font.BoldSystemFontOfSize(NamedSize.Large),
 														FontSize = 14,
 														VerticalOptions = LayoutOptions.Center,
@@ -159,7 +221,7 @@ namespace bots
 													},
 													new Label
 													{
-														Text = "10%",
+														Text = Convert.ToInt32(roodPercentge) +"%",
 														Font = Font.BoldSystemFontOfSize(NamedSize.Large),
 														FontSize = 14,
 														VerticalOptions = LayoutOptions.Center,

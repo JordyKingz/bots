@@ -23,7 +23,7 @@
 				<local:h1Label TextColor="#fafafa"  FontFamily="OpenSans-Bold" StyleId="OpenSans-Bold" HorizontalTextAlignment="Center" Text="Check de voorwaarden hieronder!" FontSize="16"/>
 <!--				<local:CustomLabel Margin="0,15,0,30" TextColor="#fafafa" HorizontalTextAlignment="Center" FontSize="14" Text="Hieronder kunt u de algemene voorwaarden controleren o.b.v de website URL" />-->
 				<StackLayout BackgroundColor="#e0e0e0" Margin="0,30,0,15" >
-		      		<local:SearchEntry HeightRequest = "40" HorizontalTextAlignment="Center" Placeholder="URL..." BackgroundColor="#fafafa"/>
+		      		<local:SearchEntry x:Name="zoekveld" HeightRequest = "40" HorizontalTextAlignment="Center" Placeholder="URL..." BackgroundColor="#fafafa"/>
 				</StackLayout>
 
 				<StackLayout Margin="0, 0,0,15">

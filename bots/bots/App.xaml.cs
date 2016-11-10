@@ -1,10 +1,34 @@
-﻿using CrossPieCharts.FormsPlugin.Abstractions;
+﻿using System;
+using System.Collections.Generic;
+using CrossPieCharts.FormsPlugin.Abstractions;
 using Xamarin.Forms;
 
 namespace bots
 {
 	public partial class App : Application
 	{
+		public class Data
+		{
+			public String name;
+			public List<Problems> problems;
+			public List<Paragraphs> paragraphs;
+		}
+		public class Problems
+		{
+			public String tag;
+			public String msg;
+			public String weight;
+
+		}
+
+		public class Paragraphs
+		{
+			public String text;
+			public String weight;
+		}
+		public static List<Data>  dat = new List<Data>();
+
+
 		public App()
 		{
 			InitializeComponent();

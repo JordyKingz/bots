@@ -71,6 +71,7 @@
     <Compile Include="CrossPieCharts\CrossPieChartsSample.cs" />
     <Compile Include="CustomRenderers\PieStackLayout.cs" />
     <Compile Include="Pages\DetailPieChart.cs" />
+    <Compile Include="CustomRenderers\Accordion.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
