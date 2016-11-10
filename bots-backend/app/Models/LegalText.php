@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use GuzzleHttp\Client;
 use DOMDocument;
+use App\Models\Category;
 
 class LegalText extends Model
 {
@@ -120,7 +121,7 @@ class LegalText extends Model
     ];
 
     $results = self::performForeachHell($words, $sentences);
-
+    $results["categoriesTotal"] = Category::get()->count();
     return $results;
   }
 

@@ -30,6 +30,7 @@ Route::group(['prefix' => 'api', 'middleware' => 'cors'], function () {
     // json response
     // + store results into the db (somehow)
     Route::post('legal-text-check', 'ScannerController@legalTextCheck');
+    Route::post('csharp-legal-text-check', 'FakeController@csLegalTextCheck');
     // Route::post('legal-text-check', 'FakeController@legalTextCheck');
 
     Route::post('get-snippet', 'ScannerController@getSnippet');
