@@ -1,5 +1,29 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="bots.Mainpage">
-	<ContentPage.Content>
-	</ContentPage.Content>
-</ContentPage>
+<?xml version="1.0" encoding="UTF-8"?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms" Title="Valitos" BarBackgroundColor="#4A004F" BarTextColor="#fafafa"  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:bots;assembly=bots" x:Class="bots.Mainpage">
+
+	<!--<NavigationPage Title="Geschiedenis" Icon="history.png" BarBackgroundColor="#4A004F" BarTextColor="#fafafa" >
+		<x:Arguments>
+			<local:botsPage />
+
+		</x:Arguments>
+	</NavigationPage>-->
+
+			<local:botsPage />
+			<local:botsPage />
+			<local:Settings />
+	
+	<!--<NavigationPage Title="Home" Icon="home.png"  BarBackgroundColor="#4A004F" BarTextColor="#fafafa" >
+		<x:Arguments>
+			<local:botsPage />
+		</x:Arguments>
+	</NavigationPage>
+
+	<NavigationPage Title="Settings" Icon="settings.png" BarBackgroundColor="#4A004F" BarTextColor="#fafafa" >
+		<x:Arguments>
+			<local:Settings />
+		</x:Arguments>
+	</NavigationPage>-->
+	
+
+</TabbedPage>
+

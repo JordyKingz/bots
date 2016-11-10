@@ -1,17 +1,16 @@
-﻿<Properties StartupConfiguration="{381DD650-3204-43CF-ACFB-0AAD7E23F3E7}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="bots/App.xaml.cs">
+﻿<Properties StartupConfiguration="{6DE6CE95-3F2A-44CE-896B-0780703ADD20}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Droid/CustomRenderer/CustomButtonRenderer.cs">
     <Files>
-      <File FileName="iOS/Main.cs" Line="17" Column="1" />
-      <File FileName="iOS/CustomRenderer/h1LabelRenderer.cs" Line="19" Column="29" />
-      <File FileName="iOS/CustomRenderer/CustomLabelRenderer.cs" Line="21" Column="44" />
-      <File FileName="bots/App.xaml.cs" Line="17" Column="4" />
+      <File FileName="bots/Mainpage.xaml.cs" Line="18" Column="3" />
+      <File FileName="Droid/CustomRenderer/CustomButtonRenderer.cs" Line="27" Column="36" />
+      <File FileName="Droid/Properties/AndroidManifest.xml" Line="8" Column="12" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
-  <MonoDevelop.Ide.ItemProperties.bots.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
+  <MonoDevelop.Ide.ItemProperties.bots.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.93e836b9b4f6819cb65d32b36ba03ec931b4d487" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.bots.Droid PreferredExecutionTarget="Android.n6" />
+  <MonoDevelop.Ide.ItemProperties.bots.Droid AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.4d4a015a" />
 </Properties>

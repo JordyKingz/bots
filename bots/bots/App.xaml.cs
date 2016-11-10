@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using CrossPieCharts.FormsPlugin.Abstractions;
+using Xamarin.Forms;
 
 namespace bots
 {
@@ -14,7 +15,17 @@ namespace bots
 
 
 
-			MainPage = _controller;
+			//MainPage = _controller;
+			var _tab = new Mainpage();
+			_tab.CurrentPage = _tab.Children[1];
+			var _nav = new NavigationPage(_tab);
+			_nav.BarBackgroundColor = Color.FromHex("#4A004F");
+			_nav.BarTextColor = Color.FromHex("#fafafa");
+			_nav.SetValue(NavigationPage.BarTextColorProperty, Color.White);
+			MainPage = _nav;
+
+			//MainPage = new DetailPieChart().GetPageWithPieChart();
+
 		}
 
 		protected override void OnStart()

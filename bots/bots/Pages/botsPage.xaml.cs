@@ -1,4 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using CrossPieCharts.FormsPlugin.Abstractions;
+using Xamarin.Forms;
 
 namespace bots
 {
@@ -7,6 +9,13 @@ namespace bots
 		public botsPage()
 		{
 			InitializeComponent();
+			zoekbtn.Clicked += detail;
 		}
-	}
+
+		async void detail(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new DetailPieChart().GetPageWithPieChart());
+
+		}
+}
 }

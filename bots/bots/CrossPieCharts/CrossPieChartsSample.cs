@@ -21,10 +21,12 @@ namespace CrossPieCharts.FormsPlugin.Abstractions
             // The root page of your application
             var contentPage = new ContentPage
             {
-                Content = new Grid
+				
+                Content =  new Grid
                 {
                     Children =
                     {
+						
                         new Grid // a trick to set the BackgroundColor of the ContentPage to white
                         {
                             BackgroundColor  = Color.White,
@@ -33,25 +35,29 @@ namespace CrossPieCharts.FormsPlugin.Abstractions
                         {
                             Children =
                             {
-                                new Label
-                                {
-                                    XAlign = TextAlignment.Center,
-                                    Text = "Welcome to Xamarin Forms!",
-                                    TextColor = Color.Black
-                                },
+        
                                 new Grid
                                 {
                                     Children =
                                     {
                                         new CrossPieChartView
                                         {
-                                            Progress = 60,
-                                            ProgressColor = Color.Green,
-                                            ProgressBackgroundColor = Color.FromHex("#EEEEEEEE"),
+                                            Progress = 80,
+                                            ProgressColor = Color.Red,
+											ProgressBackgroundColor = Color.FromHex("#EEEEEEEE"),
                                             StrokeThickness = Device.OnPlatform(10, 20, 80),
                                             Radius = Device.OnPlatform(100, 180, 160),
                                             BackgroundColor = Color.White
                                         },
+										new CrossPieChartView
+										{
+											Progress = 60,
+											ProgressColor = Color.Green,
+											ProgressBackgroundColor = Color.Transparent,
+											StrokeThickness = Device.OnPlatform(10, 20, 80),
+											Radius = Device.OnPlatform(100, 180, 160),
+											BackgroundColor = Color.Transparent  
+										},
                                         new Label
                                         {
                                             Text = "60%",
