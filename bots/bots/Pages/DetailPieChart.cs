@@ -75,7 +75,7 @@ namespace bots
 			accordion.Children.Add(vAccordionControl);
 
 			var contentPage = new ContentPage
-			{
+			{ Title="Resultaten",
 				Content = new ScrollView()
 				{
 					Content = new Grid

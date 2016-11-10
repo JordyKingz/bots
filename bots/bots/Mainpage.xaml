@@ -8,7 +8,7 @@
 		</x:Arguments>
 	</NavigationPage>-->
 
-			<local:botsPage />
+			<local:SnippetPage />
 			<local:botsPage />
 			<local:Settings />
 	

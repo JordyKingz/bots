@@ -105,6 +105,7 @@
     <Compile Include="CustomRenderer\CustomButtonRenderer.cs" />
     <Compile Include="CustomRenderer\SearchEntryRenderer.cs" />
     <Compile Include="CrossPieCharts\CrossPieChartsRenderer.cs" />
+    <Compile Include="SplashActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -131,6 +132,15 @@
     <AndroidResource Include="Resources\drawable\slot1.png" />
     <AndroidResource Include="Resources\drawable\slot4.png" />
     <AndroidResource Include="Resources\Anim\animate_android.xml" />
+    <AndroidResource Include="Resources\drawable\logo.png" />
+    <AndroidResource Include="Resources\layout\splashscreen.xml" />
+    <AndroidResource Include="Resources\drawable\splash.png" />
+    <AndroidResource Include="Resources\drawable\bluebuttonpressed.png" />
+    <AndroidResource Include="Resources\drawable\bluebutton.png" />
+    <AndroidResource Include="Resources\drawable\greenbuttonpressed.png" />
+    <AndroidResource Include="Resources\drawable\greenbutton.png" />
+    <AndroidResource Include="Resources\drawable\redbuttonpressed.png" />
+    <AndroidResource Include="Resources\drawable\redbutton.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\OpenSans-Bold.ttf" />
