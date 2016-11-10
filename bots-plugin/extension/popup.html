@@ -10,17 +10,78 @@
     <link href="style.css" rel="stylesheet">
   </head>
   <body>
-    <div class="app">
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <img src="favicon_128x128.png" alt="logo valitos by Plas Bossinade" style="margin-bottom: 10px; ">
+    <div id="app" class="app">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center button-tos padding-large">
+            <img src="favicon_128x128.png" alt="logo valitos by Plas Bossinade" style="max-width: 90px; margin-bottom: 10px; ">
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <button id="checkPage" class="btn" style="margin-bottom: 50px; ">Check terms of condition</button>
+        <div class="row">
+          <div class="col-md-12 button-tos padding-large">
+            <button id="checkPage" class="btn btn-block">Check terms of condition</button>
+          </div>
+          <div id="result" class="text-center">
+            <div class="header">
+              <div class="container">
+                <div class="col-md-12 text-center">
+                  <img src="logo2.png" alt="" style="max-width: 120px;">
+                </div>
+              </div>
+            </div>
+            <h2>Resultaten</h2>
+            <canvas id="myChart" width="740" height="500"></canvas>
+            <div id="description">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="alert alert-danger">
+                    <p><strong>Privacy</strong></p>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur cumque nisi, suscipit quae accusantium error impedit beatae accusamus sed totam facere dicta aut nobis illum quos qui, mollitia explicabo dolore.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="alert alert-danger">
+                    <p><strong>Aansprakelijkheid</strong></p>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem esse labore laborum voluptatum hic, tenetur? Quibusdam placeat animi provident dolorum, reiciendis voluptates impedit, vel possimus nesciunt? Est ullam dolorem itaque.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="alert alert-warning">
+                    <p><strong>Error</strong></p>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod quae illo dolor temporibus quaerat aliquam fugit optio sed, in iure, dolorum nobis rem ea porro facilis consequuntur vitae similique. Neque.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="footer">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12">
+                    <img src="logo2.png" alt="" style="max-width: 120px;">
+                    <p class="small">
+                      Een product van:
+                    </p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <img src="Logo-Plasbossinade.jpg" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <canvas id="myChart" width="740" height="500"></canvas>
       </div>
     </div>
   </body>
