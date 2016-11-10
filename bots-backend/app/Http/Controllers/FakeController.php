@@ -129,7 +129,7 @@ class FakeController extends Controller
 
   public function csLegalTextCheck(Request $request) {
     $data = [
-      "category1" => [
+      [
         "name" => "Privacy",
         "problems" => [
           [
