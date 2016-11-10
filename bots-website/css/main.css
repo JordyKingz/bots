@@ -585,7 +585,7 @@ ul.sub-menu {
 #home-slider .slide-text{
   position: absolute;
   top: 50px;
-  left: 20px;
+  left: 100px;
   width: 450px;
 }
 
@@ -598,9 +598,10 @@ ul.sub-menu {
   position: absolute;
 	right: 0;
 	bottom: 0;
-	margin-right: 130px;
-	margin-bottom: 140px;
-	max-height: 400px;
+	margin-right: 240px;
+	margin-bottom: 50px;
+	
+	width:330px;
 }
 
 .animate-in .slider-hill {
@@ -2788,7 +2789,8 @@ span.stButton_gradient,
 }
 
 #donut-chart{
-	margin-left:-150px;
+	margin-left:-70px;
+	margin-top:70px;
 	position:relative;
 }
 
@@ -2801,7 +2803,7 @@ span.stButton_gradient,
 }
 
 .legend{
-	position: absolute;
+	position: relative;
 	right: -20px;
 	margin-top: 200px;
 	z-index: 5000;
@@ -2821,4 +2823,20 @@ span.stButton_gradient,
 	text-align: center;
 	margin-left: -65px;
 	color:#4a004f;
+}
+
+.term{
+	margin-left: 30px;
+	margin-top: -22px;
+	max-width:80%;
+}
+
+span.badge{
+	position:absolute;
+right:15px;
+top:13px;	
+}
+
+.glyphicon-search{
+	padding-right:15px;	
 }
