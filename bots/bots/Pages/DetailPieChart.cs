@@ -33,12 +33,12 @@ namespace bots
 
 			for (var i = 0; i < data.Count; i++)
 			{
-				
+
 				problem prob = new problem();
 				List<int> weights = new List<int>();
 				for (var a = 0; a < data[i].problems.Count; a++)
 				{
-					
+
 
 					weights.Add(Convert.ToInt32(data[i].problems[a].weight));
 
@@ -49,9 +49,6 @@ namespace bots
 				prob.name = data[i].name;
 				prob.highWeight = max;
 				allProblems.Add(prob);
-
-
-
 
 			}
 
@@ -71,6 +68,11 @@ namespace bots
 
 
 			//System.Diagnostics.Debug.WriteLine(oranjePercentage);
+
+			var accordion = new StackLayout();
+			var vAccordionSource = GetAccordionData();
+			var vAccordionControl = new Accordion(vAccordionSource);
+			accordion.Children.Add(vAccordionControl);
 
 			var contentPage = new ContentPage
 			{
@@ -140,7 +142,7 @@ namespace bots
 									new StackLayout
 									{
 										HorizontalOptions = LayoutOptions.CenterAndExpand,
-										Orientation = StackOrientation.Horizontal,
+										Orientation = StackOrientation.Horizontal, Margin = new Thickness(0,0,0,20),
 
 										Children = {
 
@@ -235,18 +237,114 @@ namespace bots
 
 										}
 
-									}
+									}, accordion
 
 						}
 					}
 				}
+					}
 				}
-				}
-			
-            };
+
+			};
 
 
 			return contentPage;
 		}
+		public List<AccordionSource> GetAccordionData()
+		{
+			var vResult = new List<AccordionSource>();
+
+
+
+			#region Second List
+			var vListTwo = new List<SimpleObject>();
+			var vObjectRavi = new SimpleObject()
+			{
+				TextValue = "S Ravi Kumar",
+				DataValue = "1"
+			};
+			vListTwo.Add(vObjectRavi);
+			var vObjectFather = new SimpleObject()
+			{
+				TextValue = "Father",
+				DataValue = "2"
+			};
+			vListTwo.Add(vObjectFather);
+			var vObjectTrainer = new SimpleObject()
+			{
+				TextValue = "Trainer",
+				DataValue = "2"
+			};
+			vListTwo.Add(vObjectTrainer);
+			var vObjectConsultant = new SimpleObject()
+			{
+				TextValue = "Consultant",
+				DataValue = "2"
+			};
+			vListTwo.Add(vObjectConsultant);
+			var vObjectArchitect = new SimpleObject()
+			{
+				TextValue = "Architect",
+				DataValue = "2"
+			};
+			vListTwo.Add(vObjectArchitect);
+
+			var vListViewTwo = new ListView()
+			{
+				ItemsSource = vListTwo,
+				ItemTemplate = new DataTemplate(typeof(ListDataViewCell))
+			};
+
+			#endregion
+
+			#region StackLayout
+
+			List<App.Data> data = App.dat;
+
+			for (var i = 0; i < data.Count; i++)
+			{
+				var vViewLayout = new StackLayout()
+				{
+					
+					Margin = new Thickness(20)
+
+				};
+				List<int> weights = new List<int>();
+				for (var a = 0; a < data[i].paragraphs.Count; a++)
+				{
+
+					var label = new Label { Text = data[i].paragraphs[a].text, TextColor = Color.Black, Margin = new Thickness(0,15,0,15) };
+					weights.Add(Convert.ToInt32(data[i].problems[a].weight));
+					vViewLayout.Children.Add(label);
+				}
+				var max = weights.Max();
+				Color color;
+				if (max < 66 && max > 0)
+				{
+					color = Color.FromHex("#FFa500");
+				}
+				else {
+					color = Color.Red;
+				}
+
+
+				#endregion
+				var vSecond = new AccordionSource()
+				{
+					HeaderText = data[i].name,
+					HeaderTextColor = Color.Black,
+					HeaderBackGroundColor = Color.FromHex("#fafafa"),
+					LeftBorderColor = color ,
+					ContentItems = vViewLayout
+				};
+				vResult.Add(vSecond);
+
+			}
+
+			return vResult;
+		}
 	}
 }
+
+
+

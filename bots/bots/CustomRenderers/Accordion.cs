@@ -32,6 +32,7 @@ namespace bots
 		public string HeaderText { get; set; }
 		public Color HeaderTextColor { get; set; }
 		public Color HeaderBackGroundColor { get; set; }
+		public Color LeftBorderColor { get; set; }
 		public View ContentItems { get; set; }
 	}
 
@@ -67,6 +68,8 @@ namespace bots
 		}
 		#endregion
 
+
+
 		public void DataBind()
 		{
 			var vMainLayout = new StackLayout();
@@ -80,7 +83,9 @@ namespace bots
 					{
 						Text = vSingleItem.HeaderText,
 						TextColor = vSingleItem.HeaderTextColor,
-						BackgroundColor = vSingleItem.HeaderBackGroundColor
+						BackgroundColor = Color.Transparent
+
+
 					};
 
 					var vAccordionContent = new ContentView()
@@ -94,9 +99,24 @@ namespace bots
 						vAccordionContent.IsVisible = mFirstExpaned;
 						vFirst = false;
 					}
+
 					vHeaderButton.AssosiatedContent = vAccordionContent;
 					vHeaderButton.Clicked += OnAccordionButtonClicked;
-					vMainLayout.Children.Add(vHeaderButton);
+
+					var stack = new StackLayout();
+					var stroke = new StackLayout();
+					stack.Orientation = StackOrientation.Horizontal;
+					stack.BackgroundColor = vSingleItem.HeaderBackGroundColor;
+					stroke.WidthRequest = 6;
+					stroke.HeightRequest = 25;
+					stroke.BackgroundColor = vSingleItem.LeftBorderColor;
+
+					stack.Children.Add(stroke);
+					stack.Children.Add(vHeaderButton);
+
+
+					vMainLayout.Children.Add(stack);
+					//vMainLayout.Children.Add(vHeaderButton);
 					vMainLayout.Children.Add(vAccordionContent);
 
 				}
@@ -126,5 +146,31 @@ namespace bots
 			vSenderButton.AssosiatedContent.IsVisible = vSenderButton.Expand;
 		}
 
+	}
+	public class ListDataViewCell : ViewCell
+	{
+		public ListDataViewCell()
+		{
+			var label = new Label()
+			{
+				Font = Font.SystemFontOfSize(NamedSize.Default),
+				TextColor = Color.Blue
+			};
+			label.SetBinding(Label.TextProperty, new Binding("TextValue"));
+			label.SetBinding(Label.ClassIdProperty, new Binding("DataValue"));
+			View = new StackLayout()
+			{
+				Orientation = StackOrientation.Vertical,
+				VerticalOptions = LayoutOptions.StartAndExpand,
+				Padding = new Thickness(12, 8),
+				Children = { label }
+			};
+		}
+	}
+
+	public class SimpleObject
+	{
+		public string TextValue { get; set; }
+		public string DataValue { get; set; }
 	}
 }
