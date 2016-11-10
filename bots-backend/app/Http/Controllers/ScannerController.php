@@ -24,11 +24,11 @@ class ScannerController extends Controller
       // retrieve legalText from Url
       $url = $request->url;
       $legalText = LegalText::textByUrl($request->url);
-      return response()->json($legalText);
       // NOTE: Wouter, hier uitbreiden met jouw parser
       // en dan de json response aanpassen gebaseerd op parser results
       // + opslaan resultaten in DB
       $analysisResults = LegalText::analyse($legalText);
+      return response()->json($analysisResults);
       $formattedData = LegalText::formatData($analysisResults);
       return response()->json($formattedData);
     }

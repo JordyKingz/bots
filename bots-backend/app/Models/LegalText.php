@@ -128,6 +128,37 @@ class LegalText extends Model
     $sentences = self::makeSentences($parts);
 
     // In de zinnen kijken naar woorden
+    $words = self::getAnalysisWords();
+    return $words;
+
+    $results = self::performForeachHell($words, $sentences);
+    $results["categoriesTotal"] = Category::get()->count();
+    return $results;
+  }
+
+  // analysing
+  public static function getAnalysisWords() {
+    $cats = Category::get()->all();
+
+    $words = [];
+    foreach ($cats as $i => $cat) {
+      $catProblems = [];
+      foreach ($cat->problems as $probKey => $problem) {
+        $phrasewords = [];
+        foreach ($problem->keywords as $keywordKey => $keyword) {
+          $phrasewords[] = $keyword->phrasewords;
+        }
+        $catProblems[$problem->tag] = [
+          "weight" => $problem->weight,
+          "keywords" => $problem->keywords,
+        ];
+      }
+      $words[] = [
+        $cat['name'] => $catProblems,
+      ];
+    }
+    return $words;
+
     $words = [
       // dit is categories.name
       "privacy" => [  // Praat over privacy
@@ -148,13 +179,8 @@ class LegalText extends Model
         ]
       ]
     ];
-
-    $results = self::performForeachHell($words, $sentences);
-    $results["categoriesTotal"] = Category::get()->count();
-    return $results;
   }
 
-  // analysing
   public static function performForeachHell($words, $sentences) {
     $result = [];
     foreach($words as $catname => $cat) {
@@ -168,22 +194,22 @@ class LegalText extends Model
             # Loop through all the parts
             foreach($part as $sentence){
               # Loop through every part as a sentence... look for the subwords and keywords, mark as category
-              $shitfound = false;
+              $findings = false;
               if(stripos($sentence,$context) !== false){
                 # Found keyword in sentence
                 if(stripos($sentence,$subword) !== false){
                   # Also found subword that makes shit bad
                   if(empty($attributes['cancel']))
-                    $shitfound = true; # Assume the clausule is bad mojo
+                    $findings = true; # Assume the clausule is bad mojo
                   foreach($attributes['cancel'] as $attr){
                     if(stripos($sentence,$attr) === false){
                       # If a cancel word is found, bad mojo becomes good mojo and weight doesnt count
-                      $shitfound = true;
+                      $findings = true;
                     }
                   }
                 }
               }
-              if($shitfound)
+              if($findings)
                 $weight = $weight + $attributes['weight'];
             }
           }
