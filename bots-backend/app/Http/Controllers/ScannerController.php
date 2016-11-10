@@ -39,7 +39,17 @@ class ScannerController extends Controller
       // $categoriesList = ['iets', 'bla', 'asd'];
       // $categories = Category::whereIn('name', $categoriesList)->get();
       // $snippets = Snippet::all()->get();
-
+      // $snippet = [
+      //   "snippetId" => 1,
+      //   "category" => "Privacy",
+      //   "text" => "  duurzame gegevensdrager: elk hulpmiddel \u2013 waaronder ook begrepen e-mail \u2013 dat de consument of ondernemer in staat stelt om informatie die aan hem persoonlijk is gericht, op te slaan op een manier die toekomstige raadpleging of gebruik gedurende een periode die is afgestemd op het doel waarvoor de informatie is bestemd, en die ongewijzigde reproductie van de opgeslagen informatie mogelijk maakt",
+      //   "weight" => 75
+      // ]
+      // $sendReview = [
+      //   "snippetId" => 1,
+      //   "userReview" => "Pas op!", // NOTE: signaalwoorden
+      //
+      // ]
     }
 
     public function storeSnippet(Request $request) {
