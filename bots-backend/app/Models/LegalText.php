@@ -8,6 +8,7 @@ use DOMDocument;
 
 class LegalText extends Model
 {
+  public $timestamps = false;
   public static $searchThroughTags = [
     'p',
     'h1',

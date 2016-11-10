@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Problem;
 class TestingController extends Controller
 {
     /**
@@ -121,5 +121,8 @@ class TestingController extends Controller
       ];
 
       return response()->json($data)->header('Content-Type', 'application/json; charset=utf-8');
+    }
+    public function bla(){
+        return Problem::find(1);
     }
 }

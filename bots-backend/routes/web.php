@@ -18,6 +18,8 @@
   });
 // });
 
+Route::get('haha', 'TestingController@bla');
+
 
 Route::group(['prefix' => 'api', 'middleware' => 'cors'], function () {
   Route::group(['prefix' => 'v1'], function () {
