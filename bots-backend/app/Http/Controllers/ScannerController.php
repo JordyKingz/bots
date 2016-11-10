@@ -7,6 +7,7 @@ use Illuminate\Support\HtmlString;
 use App\Models\LegalText;
 use App\Models\Category;
 use App\Models\Snippet;
+use App\Models\AppUser;
 
 class ScannerController extends Controller
 {
@@ -24,6 +25,7 @@ class ScannerController extends Controller
       // retrieve legalText from Url
       $url = $request->url;
       $legalText = LegalText::textByUrl($request->url);
+      return $legalText;
       // NOTE: Wouter, hier uitbreiden met jouw parser
       // en dan de json response aanpassen gebaseerd op parser results
       // + opslaan resultaten in DB
@@ -34,24 +36,12 @@ class ScannerController extends Controller
     }
 
     public function getSnippet(Request $request) {
-      // assume we have list => [iets, bla, asd]
-      // of categories we want a snippet from
-      // make sure user did not already review this
-      // snippet. TODO: retrieve settings from $request
-      // $categoriesList = ['iets', 'bla', 'asd'];
-      // $categories = Category::whereIn('name', $categoriesList)->get();
-      // $snippets = Snippet::all()->get();
-      // $snippet = [
-      //   "snippetId" => 1,
-      //   "category" => "Privacy",
-      //   "text" => "  duurzame gegevensdrager: elk hulpmiddel \u2013 waaronder ook begrepen e-mail \u2013 dat de consument of ondernemer in staat stelt om informatie die aan hem persoonlijk is gericht, op te slaan op een manier die toekomstige raadpleging of gebruik gedurende een periode die is afgestemd op het doel waarvoor de informatie is bestemd, en die ongewijzigde reproductie van de opgeslagen informatie mogelijk maakt",
-      //   "weight" => 75
-      // ]
-      // $sendReview = [
-      //   "snippetId" => 1,
-      //   "userReview" => "Pas op!", // NOTE: signaalwoorden
-      //
-      // ]
+      if ($request->guid) {
+        $appUser = $request->guid;
+      } else {
+        $appUser = AppUser::create()->save();
+      }
+      return $appUser;
     }
 
     public function storeSnippet(Request $request) {

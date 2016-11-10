@@ -50,7 +50,7 @@ class LegalText extends Model
     $doc = new DOMDocument();
     self::$doc = $doc;
     libxml_use_internal_errors(true);
-    $string = strtolower($string);
+    // $string = strtolower($string);
     $doc->loadHTML($string);
     libxml_use_internal_errors(false);
     return $doc;
@@ -77,7 +77,7 @@ class LegalText extends Model
     foreach ($domNodeLists as $domNodeList) {
       foreach ($domNodeList as $domElement) {
         foreach (self::$findTitles as $title) {
-          if (strpos($domElement->nodeValue, $title) === 0) {
+          if (strpos(strtolower($domElement->nodeValue), $title) === 0) {
             // we have a potentialMatch
             $match = self::checkIfParentIsLegal($domElement);
             if ($match) {
@@ -129,7 +129,6 @@ class LegalText extends Model
 
     // In de zinnen kijken naar woorden
     $words = self::getAnalysisWords();
-    return $words;
 
     $results = self::performForeachHell($words, $sentences);
     $results["categoriesTotal"] = Category::get()->count();
