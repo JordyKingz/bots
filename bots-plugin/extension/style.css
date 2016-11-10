@@ -1,4 +1,6 @@
 button { background-color: #DB0337; }
 
 .btn { color: #FFFFFF; }
-.app { padding: 30px; }
+.app { padding: 30px; width: 300px; height: 200px;}
+
+#myChart { display: none; margin-top: 0; }
