@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+  <head>
+    <title>ValiTos</title>
+
+    <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="wow.min.js"></script>
+
+    <script src="jquery-3.1.1.min.js"></script>
+    <script src="c3/d3.js"></script>
+    <script src="c3/c3.js"></script>
+    <script src="popup.js"></script>
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app" class="app">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center button-tos padding-large">
+            <img src="favicon_128x128.png" alt="logo valitos by Plas Bossinade" style="max-width: 90px; margin-bottom: 10px; ">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 button-tos padding-large">
+            <button id="checkPage" class="btn btn-block">Check terms of condition</button>
+          </div>
+          <div id="result" class="text-center">
+            <div class="header">
+              <div class="container">
+                <div class="col-md-12 text-center">
+                  <img src="logo2.png" alt="" style="max-width: 120px;">
+                </div>
+              </div>
+            </div>
+            <section id="scan" class="responsive" style="display:none; height:0px;">
+           		<div class="container" style="border-bottom:thin solid #ccc;">
+                <div class="row">
+                  <div class="single-features">
+                	  <div class="col-sm-12 text-center">
+                      <h1 style="padding-top:60px;">Scan resultaten</h1>
+                      <p style="color:#aaa;" id="scan-counter"></p>
+                    </div>
+                  	<div class="col-sm-12">
+                    	<div id="donut-chart"></div>
+                    </div>
+                    <div class="col-sm-12">
+                    	<div id="result"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+     	        <div class="container">
+                <div class="row">
+                  <div class="col-sm-6 col-md-6">
+                    <div class="panel-group" id="accordion">
+                    </div>
+                  </div>
+                </div>
+          			<p>
+                  Neem contact op met <a href="#footer"> Plas Bossinade </a>voor informatie over het opstellen en de veiligheid van algemene voorwaarden
+                </p>
+              </div>
+          	</section>
+            <div class="footer">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12">
+                    <img src="logo2.png" alt="" style="max-width: 120px;">
+                    <p class="small">
+                      Een product van:
+                    </p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <img src="Logo-Plasbossinade.jpg" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
