@@ -27,7 +27,11 @@ class LegalText extends Model
   // titles in lowercase (html gets normalised to lower)
   private static $findTitles = [
     'algemene voorwaarden',
-    'algemene actievoorwaarden'
+    'algemene actievoorwaarden',
+    'zakelijke klanten',
+    'privacy verklaring',
+    'cookies',
+    'spaarprogramma',
   ];
 
   public static function textByUrl($url) {
@@ -58,7 +62,7 @@ class LegalText extends Model
       }
     }
     $html = $domElement->nodeValue;
-    return strlen($html) > 7000 ? $html : false;
+    return strlen($html) > 1000 ? $html : false;
   }
 
   public static function stripTextFromHtml($htmlDomDoc) {
@@ -86,6 +90,10 @@ class LegalText extends Model
       }
     }
     return $match;
+  }
+
+  public static function analyse($legalText) {
+    return "Wouters functie";
   }
 
 }

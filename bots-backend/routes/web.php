@@ -11,9 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// @TODO: add landing-page front-end
+// Route::group(['name' => 'landing-page'], function() {
+  Route::get('/', function() {
+    return "home";
+  });
+// });
 
 
 Route::group(['prefix' => 'api', 'middleware' => 'cors'], function () {
@@ -21,9 +24,16 @@ Route::group(['prefix' => 'api', 'middleware' => 'cors'], function () {
 
     Route::resource('test-connection', 'TestingController');
 
-    // Route::post('legal-text-check', 'ScannerController@legalTextCheck');
-    Route::post('legal-text-check', 'FakeController@legalTextCheck');
+    // @TODO: fix legal-text-check with Wouters analyser and parse results into
+    // json response
+    // + store results into the db (somehow)
+    Route::post('legal-text-check', 'ScannerController@legalTextCheck');
+    // Route::post('legal-text-check', 'FakeController@legalTextCheck');
 
+    Route::post('get-snippet', 'ScannerController@getSnippet');
+    Route::post('receive-snippet', 'ScannerController@storeSnippet');
+
+    Route::get('generate-user-guid', 'UserController@generateGuiUserId');
 
   });
 });

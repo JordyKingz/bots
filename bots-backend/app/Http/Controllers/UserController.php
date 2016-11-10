@@ -3,12 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\HtmlString;
-use App\Models\LegalText;
-use App\Models\Category;
-use App\Models\Snippet;
+use App\Models\AppUser;
 
-class ScannerController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,35 +14,13 @@ class ScannerController extends Controller
      */
     public function index()
     {
-
+        //
     }
 
-    public function legalTextCheck(Request $request) {
-      // retrieve legalText from Url
-      $url = $request->url;
-      $legalText = LegalText::textByUrl($request->url);
-      // NOTE: Wouter, hier uitbreiden met jouw parser
-      // en dan de json response aanpassen gebaseerd op parser results
-      // + opslaan resultaten in DB
-      $analysedLegalText = LegalText::analyse($legalText);
-      return response()->json(["legalText" => $analysedLegalText]);
+    public function generateGuiUserId() {
+      $user = AppUser::create();
+      return $user->guid;
     }
-
-    public function getSnippet(Request $request) {
-      // assume we have list => [iets, bla, asd]
-      // of categories we want a snippet from
-      // make sure user did not already review this
-      // snippet. TODO: retrieve settings from $request
-      // $categoriesList = ['iets', 'bla', 'asd'];
-      // $categories = Category::whereIn('name', $categoriesList)->get();
-      // $snippets = Snippet::all()->get();
-
-    }
-
-    public function storeSnippet(Request $request) {
-      //
-    }
-
 
     /**
      * Show the form for creating a new resource.
