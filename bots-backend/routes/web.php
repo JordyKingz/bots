@@ -29,8 +29,8 @@ Route::group(['prefix' => 'api', 'middleware' => 'cors'], function () {
     // @TODO: fix legal-text-check with Wouters analyser and parse results into
     // json response
     // + store results into the db (somehow)
-    // Route::post('legal-text-check', 'ScannerController@legalTextCheck');
-    Route::post('legal-text-check', 'FakeController@legalTextCheck');
+    Route::post('legal-text-check', 'ScannerController@legalTextCheck');
+    // Route::post('legal-text-check', 'FakeController@legalTextCheck');
 
     Route::post('get-snippet', 'ScannerController@getSnippet');
     Route::post('receive-snippet', 'ScannerController@storeSnippet');
