@@ -94,7 +94,33 @@ class LegalText extends Model
     return $match;
   }
 
+  public static function formatData($data) {
+    // $categories = Category::get()->whereIn('name', $data);
+    // return $data;
+    return $data;
+    $cats = [];
+    foreach ($data as $key => $value) {
+      $cats[] = Category::where('name', $key)->get()->find(1);
+    }
 
+    $catsParsed = [];
+    foreach ($cats as $key => $cat) {
+      if (empty($cat))
+        continue;
+
+      $catsParsed[] = [
+        "name" => $cat['name'],
+        "problems" => $cat['problems'],
+        "paragraphs" => $cat['paragraphs'],
+      ];
+    }
+    $arr = [
+      "status" => "success",
+      "categoriesTotal" => Category::get()->count(),
+      "data" => $catsParsed,
+    ];
+    return $arr;
+  }
 
   public static function analyse($legalText) {
     $parts = self::findParts($legalText);
@@ -103,8 +129,11 @@ class LegalText extends Model
 
     // In de zinnen kijken naar woorden
     $words = [
+      // dit is categories.name
       "privacy" => [  // Praat over privacy
+        // dit is category->problems (collection, loop)
         "persoonlijke gegevens" => [ // Context = Persoonlijke gegevens
+            // is keyword
             "verspreiding" => [ // Woord wat iets zegt over context
               "cancel" => ["geen"], // Cancel voor dit woord - kijk in zin
               "weight" => 50
@@ -160,7 +189,7 @@ class LegalText extends Model
           }
         }
       }
-      $result[] = "$catname - $weight \n";
+      $result[$catname] = $weight;
     }
     return $result;
 
