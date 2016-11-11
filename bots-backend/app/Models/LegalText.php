@@ -103,10 +103,9 @@ class LegalText extends Model
       $cat = Category::where('name', $catName)->get()->first();
       $paragraphs = [];
       foreach ($catData['paragraphs'] as $i => $paragraphText) {
-
         $paragraphs[] = [
           "text" => $paragraphText,
-          "weight" => 123,
+          "weight" => 50,
           "problems" => [ 0, 2 ],
         ];
       }
@@ -130,13 +129,22 @@ class LegalText extends Model
     // $categories = Category::get()->whereIn('name', $data);
     // return $data;
 
+
     $catBlocks = [];
     foreach ($data as $catName => $catData) {
+      $paragraphs = [];
+      foreach ($catData['paragraphs'] as $i => $paragraphText) {
+        $paragraphs[] = [
+          "text" => $paragraphText,
+          "weight" => 50,
+          "problems" => [ 0, 2 ],
+        ];
+      }
       $cat = Category::where('name', $catName)->get()->first();
       $catBlocks[] = [
         "name" => $cat['name'],
         "problems" => $catData['problems'],
-        "paragraphs" => $catData['paragraphs']
+        "paragraphs" => $paragraphs
       ];
     }
 
