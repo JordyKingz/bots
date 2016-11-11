@@ -38,6 +38,24 @@ class ScannerController extends Controller
       return response()->json($formattedData);
     }
 
+    public function legalTextCheckByPaste(Request $request) {
+      // retrieve legalText from Url
+      // $url = $request->url;
+      // if(stripos($url, "peterschriever.com") !== false) {
+      //   throw new \Exception("Cannot call this domain.");
+      // }
+      // $legalText = LegalText::textByUrl($request->url);
+      $legalText = $request->text;
+
+      // NOTE: Wouter, hier uitbreiden met jouw parser
+      // en dan de json response aanpassen gebaseerd op parser results
+      // + opslaan resultaten in DB
+      $analysisResults = LegalText::analyse($legalText);
+      // return response()->json($analysisResults);
+      $formattedData = LegalText::formatCSData($analysisResults);
+      return response()->json($formattedData);
+    }
+
     public function csLegalTextCheck(Request $request) {
       // retrieve legalText from Url
       $url = $request->url;
