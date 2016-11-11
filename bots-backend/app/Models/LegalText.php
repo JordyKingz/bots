@@ -101,10 +101,19 @@ class LegalText extends Model
     $catBlocks = [];
     foreach ($data as $catName => $catData) {
       $cat = Category::where('name', $catName)->get()->first();
+      $paragraphs = [];
+      foreach ($catData['paragraphs'] as $i => $paragraphText) {
+
+        $paragraphs[] = [
+          "text" => $paragraphText,
+          "weight" => 123,
+          "problems" => [ 0, 2 ],
+        ];
+      }
       $catBlocks[] = [
         "name" => $cat['name'],
         "problems" => $catData['problems'],
-        "paragraphs" => $catData['paragraphs']
+        "paragraphs" => $paragraphs
       ];
     }
 
