@@ -48,6 +48,9 @@
     <EmbeddedResource Include="Pages\SnippetDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pages\FullTextInputPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -85,6 +88,10 @@
       <DependentUpon>SnippetDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PieChartContentPage.cs" />
+    <Compile Include="Pages\FullTextInputPage.xaml.cs">
+      <DependentUpon>FullTextInputPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomRenderers\CustomEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

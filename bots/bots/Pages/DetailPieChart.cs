@@ -4,10 +4,15 @@ using System.Linq;
 using CrossPieCharts.FormsPlugin.Abstractions;
 using Xamarin.Forms;
 
+
+
 namespace bots
 {
+	
+
 	public class DetailPieChart
 	{
+		
 		public DetailPieChart()
 		{
 		}
@@ -77,26 +82,13 @@ namespace bots
 			var vAccordionControl = new Accordion(vAccordionSource);
 			accordion.Children.Add(vAccordionControl);
 
-			var contentPage = new ContentPage
-			{ Title="Resultaten",
-				Content = new ScrollView()
-				{
-					Content = new Grid
-					{
-						Children =
-					{
-						new Grid // a trick to set the BackgroundColor of the ContentPage to white
-                        {
-							BackgroundColor  = Color.White,
-						},
-						new StackLayout
-						{
-							Children =
-							{
+			Grid grid = new Grid();
 
-								new Grid
-									{  Padding = new Thickness(20,20,20,20),
-									Children =
+
+			 grid = new Grid
+			{
+				Padding = new Thickness(20, 20, 20, 20),
+				Children =
 									{
 										new CrossPieChartView
 										{
@@ -140,8 +132,31 @@ namespace bots
 											Radius = Device.OnPlatform(100, 180, 160),
 											BackgroundColor = Color.Transparent
 										},
+
 									}
-							},
+			};
+
+
+			var contentPage = new ContentPage
+			{ Title="Resultaten",
+				Content = new ScrollView()
+				{
+					Content = new Grid
+					{
+						Children =
+					{
+						new Grid // a trick to set the BackgroundColor of the ContentPage to white
+                        {
+							BackgroundColor  = Color.White,
+						},
+						new StackLayout
+						{
+							Children =
+							{
+									
+								grid,
+
+									
 									new StackLayout
 									{
 										HorizontalOptions = LayoutOptions.CenterAndExpand,

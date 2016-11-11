@@ -17,6 +17,8 @@ namespace CrossPieCharts.FormsPlugin.iOSUnified
         /// </summary>
         public static void Init()
         {
+			
         }
+
     }
 }

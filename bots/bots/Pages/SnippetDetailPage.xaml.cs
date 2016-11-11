@@ -17,7 +17,7 @@ namespace bots
 
 		async void  Verzendbtn_Clicked(object sender, EventArgs e)
 		{
-			verzendbtn.HandleTouch(sender, e);
+			
 			await Navigation.PushAsync(new DetailPieChart().GetPageWithPieChart());
 		}
 		protected override void OnDisappearing()

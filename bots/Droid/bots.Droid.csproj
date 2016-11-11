@@ -26,7 +26,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
-    <AndroidKeyStore></AndroidKeyStore>
+    <AndroidKeyStore>True</AndroidKeyStore>
     <AndroidSigningKeyStore>/Users/wouterstraver/bots.keystore</AndroidSigningKeyStore>
     <AndroidSigningStorePass>159951ws</AndroidSigningStorePass>
     <AndroidSigningKeyAlias>botspublish</AndroidSigningKeyAlias>
@@ -120,6 +120,7 @@
     <Compile Include="CustomRenderer\SearchEntryRenderer.cs" />
     <Compile Include="CrossPieCharts\CrossPieChartsRenderer.cs" />
     <Compile Include="SplashActivity.cs" />
+    <Compile Include="CustomRenderer\CustomEditorRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

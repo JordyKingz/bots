@@ -4,7 +4,7 @@
 		<StackLayout VerticalOptions = "Center" HorizontalOptions="Center">
 			<StackLayout VerticalOptions = "Center">
 				<local:CustomLabel Margin="40" Text ="Waarom vindt u dit risicovol?"/>
-				<Editor  TextColor="Black" HeightRequest = "150" BackgroundColor = "#f0f0f0" Margin="0,0,0,30"/>
+				<local:CustomEditor  TextColor="Black" HeightRequest = "150" BackgroundColor = "#f0f0f0" Margin="0,0,0,30"/>
 
 				<local:CustomButton x:Name="verzendbtn"  Text="Verzenden"  BorderRadius="0" HeightRequest= "40" BackgroundColor="#E3214F" TextColor="#fafafa" FontSize="18" />
 			</StackLayout>

@@ -13,6 +13,12 @@ namespace bots
 			InitializeComponent();
 			zoekveld.Completed += (object sender, EventArgs e) => OnPropertyChanged();;
 			zoekbtn.Clicked += detail;
+			handmatigbtn.Clicked += Handmatigbtn_Clicked;
+		}
+
+		async void Handmatigbtn_Clicked(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new FullTextInputPage());
 		}
 
 		async void detail(object sender, EventArgs e)
