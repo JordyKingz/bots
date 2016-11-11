@@ -125,12 +125,12 @@ class LegalText extends Model
   public static function analyse($legalText) {
     $parts = self::findParts($legalText);
     // Split parts into sentences
-    $sentences = self::makeSentences($parts);
+    // $sentences = self::makeSentences($parts);
 
     // In de zinnen kijken naar woorden
     $words = self::getAnalysisWords();
 
-    $results = self::performForeachHell($words, $sentences);
+    $results = self::performForeachHell($words, $parts);
     $results["categoriesTotal"] = Category::get()->count();
     return $results;
   }
@@ -148,6 +148,7 @@ class LegalText extends Model
           $phrasewords[] = $keyword->phrasewords;
         }
         $catProblems[$problem->tag] = [
+          "message" => $problem->message,
           "weight" => $problem->weight,
           "keywords" => $problem->keywords,
         ];
@@ -181,44 +182,70 @@ class LegalText extends Model
   }
 
   public static function performForeachHell($words, $sentences) {
-    $result = [];
-    foreach($words as $catname => $cat) {
-      $weight = 0;
-      # loop through each category
-      foreach($cat as $context => $subwords){
-        # loop through each keyword
-        foreach($subwords as $subword => $attributes){
-          # Loop through each subword in the sentences, mark as shady if found
-          foreach($sentences as $part){
-            # Loop through all the parts
-            foreach($part as $sentence){
-              # Loop through every part as a sentence... look for the subwords and keywords, mark as category
-              $findings = false;
-              if(stripos($sentence,$context) !== false){
-                # Found keyword in sentence
-                if(stripos($sentence,$subword) !== false){
-                  # Also found subword that makes shit bad
-                  if(empty($attributes['cancel']))
-                    $findings = true; # Assume the clausule is bad mojo
-                  foreach($attributes['cancel'] as $attr){
-                    if(stripos($sentence,$attr) === false){
-                      # If a cancel word is found, bad mojo becomes good mojo and weight doesnt count
-                      $findings = true;
+  $result = []; # Category list of list
+  foreach($words as $catindex => $cat) {
+    $weight = 0;
+    # loop through each category
+    foreach($cat as $catname => $problems){
+      # loop through each problem array
+      foreach($problems as $problemTag => $problemParent){
+        $w = $problemParent['weight'];
+        foreach($sentences as $paragraph){
+          # Loop through all the paragraphs
+          # No problem found so far right?
+          foreach($problemParent['keywords'] as $problem){
+            $keyword = $problem['word'];
+            $and = $problem['combination'] == "\u0001" ? true : false; # If true, phrase words should be and-ed: else or-ed
+            $found = false;
+            if(stripos($paragraph, $keyword) !== false){
+              # found but means nothing yet
+              if(count($problem['phrasewords']) == 0){
+                $found = true; # word is found and no phrasewords so yeah rip this shit
+              }
+              else{
+                if($and || !$and){ # Everything must be present haha joke always and
+                  $found = true;
+                  foreach($problem['phrasewords'] as $word){
+                    if(stripos($paragraph,$word['word']) === false){
+                      $found = false;
                     }
                   }
                 }
+                else{ # One must be present unless there are no phrasewords so revers and
+                  $found = false;
+                  foreach($problem['phrasewords'] as $word){
+                    if(stripos($paragraph,$word['word']) !== false){
+                      $found = true;
+                    }
+
+                  }
+                }
               }
-              if($findings)
-                $weight = $weight + $attributes['weight'];
+            }
+            if($found){
+              #Oeeiiiii
+              if(!isset($result[$catname]))
+                $result[$catname] = [];
+              if(!isset($result[$catname]['problems'])){
+                $result[$catname]['problems'] = [];
+                $result[$catname]['paragraphs'] = [];
+              }
+              $problemArray = [
+                'tag'=>$problemTag,
+                'msg'=> $problemParent["message"],
+                'weight'=>$w
+              ];
+              array_push($result[$catname]['problems'],$problemArray);
+              $paragraph = str_replace('\\n', "", $paragraph);
+              array_push($result[$catname]['paragraphs'],$paragraph);
             }
           }
         }
       }
-      $result[$catname] = $weight;
     }
-    return $result;
-
   }
+  return $result;
+}
 
 
   public static function makeSentences($parts) {
@@ -232,29 +259,30 @@ class LegalText extends Model
     return $parts;
   }
 
-  public static function findParts($check) {
-    $i = 0;
-    $x = 6;
-    $check = str_replace("\r", "", $check);
+  public static function findParts($text) { // DIT WERKT NIET MEE FUCKEN
+    $found = false;
     $searching = true;
-    $teststring = "";
-
-    $parts = [];
-    while(count($parts) < strlen($check)/1000  && $searching){
-
-      $teststring = "";
-      for($i = 0; $i < $x; $i++)
-        $teststring .= '\\n';
-      $parts = explode($teststring, $check);
-      $x = $x - 1;
-      if($x == 0)
-        $searching = false;
+    $text = preg_split('/[\n]/',$text);
+    while($searching){
+      $searching = false;
+      foreach($text as $index => $line){
+        if(strlen(trim($line)) == 0){
+          unset($text[$index]);
+        }
+      }
+      foreach($text as $index => $line){
+        $line = preg_replace('/[\n\r]/','',$line);
+        if(substr(trim($line),-1) != '.'){ // Werken? :D
+          if(isset($text[$index+1])){
+            unset($text[$index]);
+            $text[$index+1] = $line . $text[$index+1];
+            $searching = true;
+            break;
+          }
+        }
+      }
     }
-    foreach($parts as $k=>$v){
-      if(strlen($v) < 100) // completely abitrary
-        unset($parts[$k]);
-    }
-    return $parts;
-  }
+    return $text;
+}
 
 }
