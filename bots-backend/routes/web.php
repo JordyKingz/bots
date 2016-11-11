@@ -33,9 +33,11 @@ Route::group(['prefix' => 'api', 'middleware' => 'cors'], function () {
     Route::post('csharp-legal-text-check', 'FakeController@csLegalTextCheck');
     Route::post('legal-text-check', 'FakeController@legalTextCheck');
 
+    // deze staan nu op fake data.
     Route::post('get-snippet', 'ScannerController@getSnippet');
     Route::post('store-snippet', 'ScannerController@storeSnippet');
 
+    
     Route::get('generate-user-guid', 'UserController@generateGuiUserId');
 
   });

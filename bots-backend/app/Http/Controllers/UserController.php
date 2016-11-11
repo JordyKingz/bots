@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\AppUser;
+use App\Models\Appuser;
 
 class UserController extends Controller
 {
@@ -18,8 +18,8 @@ class UserController extends Controller
     }
 
     public function generateGuiUserId() {
-      $user = AppUser::create();
-      return $user->guid;
+      $user = Appuser::create();
+      return $user->id;
     }
 
     /**
