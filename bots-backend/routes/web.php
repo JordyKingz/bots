@@ -37,8 +37,8 @@ Route::group(['prefix' => 'api', 'middleware' => 'cors'], function () {
     Route::post('get-snippet', 'ScannerController@getSnippet');
     Route::post('store-snippet', 'ScannerController@storeSnippet');
 
-    
-    Route::get('generate-user-guid', 'UserController@generateGuiUserId');
+
+    Route::get('generate-guid', 'UserController@generateGuiUserId');
 
   });
 });
