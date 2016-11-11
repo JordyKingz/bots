@@ -28,6 +28,9 @@ class ScannerController extends Controller
         throw new \Exception("Cannot call this domain.");
       }
       $legalText = LegalText::textByUrl($request->url);
+      if (isEmptyString($legalText)) {
+        return response()->json(["status" => "fail"]);
+      }
 
       // NOTE: Wouter, hier uitbreiden met jouw parser
       // en dan de json response aanpassen gebaseerd op parser results
@@ -46,6 +49,10 @@ class ScannerController extends Controller
       // }
       // $legalText = LegalText::textByUrl($request->url);
       $legalText = $request->text;
+
+      if (isEmptyString($legalText)) {
+        return response()->json(["status" => "fail"]);
+      }
 
       // NOTE: Wouter, hier uitbreiden met jouw parser
       // en dan de json response aanpassen gebaseerd op parser results
