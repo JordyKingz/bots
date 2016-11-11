@@ -90,7 +90,7 @@ class ScannerController extends Controller
       $data = [
         "snippetId" => 1,
         "category" => "Privacy",
-        "text" => "duurzame gegevensdrager: elk hulpmiddel \u2013 waaronder ook begrepen e-mail \u2013 dat de consument of ondernemer in staat stelt om informatie die aan hem persoonlijk is gericht, op te slaan op een manier die toekomstige raadpleging of gebruik gedurende een periode die is afgestemd op het doel waarvoor de informatie is bestemd, en die ongewijzigde reproductie van de opgeslagen informatie mogelijk maakt",
+        "text" => "duurzame gegevensdrager: elk hulpmiddel waaronder ook begrepen e-mail dat de consument of ondernemer in staat stelt om informatie die aan hem persoonlijk is gericht, op te slaan op een manier die toekomstige raadpleging of gebruik gedurende een periode die is afgestemd op het doel waarvoor de informatie is bestemd, en die ongewijzigde reproductie van de opgeslagen informatie mogelijk maakt",
         "weight" => 64,
         "guid" => $request->guid == "null" ? 1 : $request->guid // 1: generate snippet
       ];
@@ -106,6 +106,7 @@ class ScannerController extends Controller
 
     public function storeSnippet(Request $request) {
       // send response of review
+
       $data = [
         "status" => "success",
         "snippetId" => $request->snippetId ? $request->snippetId : 1,
