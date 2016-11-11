@@ -108,23 +108,6 @@ class LegalText extends Model
       ];
     }
 
-    // $cats = [];
-    // foreach ($data as $key => $value) {
-    //   $cats[] = Category::where('name', $key)->get()->find(1);
-    // }
-    //
-    // $catsParsed = [];
-    // foreach ($cats as $key => $cat) {
-    //   if (empty($cat))
-    //     continue;
-    //
-    //   $catsParsed[] = [
-    //     "name" => $cat['name'],
-    //     "problems" => $cat['problems'],
-    //     "paragraphs" => $cat['paragraphs'],
-    //   ];
-    // }
-
     // main arr
     $arr = [
       "status" => "success",
@@ -132,6 +115,24 @@ class LegalText extends Model
       "data" => $catBlocks,
     ];
     return $arr;
+  }
+
+  public static function formatCSData($data) {
+    // $categories = Category::get()->whereIn('name', $data);
+    // return $data;
+
+    $catBlocks = [];
+    foreach ($data as $catName => $catData) {
+      $cat = Category::where('name', $catName)->get()->first();
+      $catBlocks[] = [
+        "name" => $cat['name'],
+        "problems" => $catData['problems'],
+        "paragraphs" => $catData['paragraphs']
+      ];
+    }
+
+    // main arr
+    return $catBlocks;
   }
 
   public static function analyse($legalText) {
