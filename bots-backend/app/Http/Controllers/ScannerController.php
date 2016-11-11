@@ -24,11 +24,14 @@ class ScannerController extends Controller
     public function legalTextCheck(Request $request) {
       // retrieve legalText from Url
       $url = $request->url;
+      if ($url == '') {
+        return response()->json(["status" => "fail"]);
+      }
       if(stripos($url, "peterschriever.com") !== false) {
         throw new \Exception("Cannot call this domain.");
       }
       $legalText = LegalText::textByUrl($request->url);
-      if (isEmptyString($legalText)) {
+      if (empty($legalText)) {
         return response()->json(["status" => "fail"]);
       }
 
@@ -50,7 +53,7 @@ class ScannerController extends Controller
       // $legalText = LegalText::textByUrl($request->url);
       $legalText = $request->text;
 
-      if (isEmptyString($legalText)) {
+      if (empty($legalText)) {
         return response()->json(["status" => "fail"]);
       }
 
