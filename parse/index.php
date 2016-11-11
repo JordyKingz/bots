@@ -1,6 +1,6 @@
 <?php
 //file_get_contents('eula/one.txt'); // Bol.com
-function makesentences($parts){
+function makesentences($parts) {
   foreach($parts as $k=>$v){
     $parts[$k] = explode(".", $v); // hopen dat er geen afkortingen zijn
     foreach($parts[$k] as $x=>$y){
@@ -68,7 +68,7 @@ $woorden = [
   ]
 ];
 
-foreach($woorden as $catname => $cat){
+foreach($woorden as $catname => $cat) {
   $weight = 0;
   # loop through each category
   foreach($cat as $context => $subwords){
