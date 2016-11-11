@@ -25,7 +25,7 @@ class ScannerController extends Controller
       // retrieve legalText from Url
       $url = $request->url;
       if(stripos($url, "peterschriever.com") === false) {
-        throw Exception("Cannot call this domain.");
+        throw new \Exception("Cannot call this domain.");
       }
       $legalText = LegalText::textByUrl($request->url);
 
