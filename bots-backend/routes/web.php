@@ -34,7 +34,7 @@ Route::group(['prefix' => 'api', 'middleware' => 'cors'], function () {
     // Route::post('legal-text-check', 'FakeController@legalTextCheck');
 
     Route::post('get-snippet', 'ScannerController@getSnippet');
-    Route::post('receive-snippet', 'ScannerController@storeSnippet');
+    Route::post('store-snippet', 'ScannerController@storeSnippet');
 
     Route::get('generate-user-guid', 'UserController@generateGuiUserId');
 
