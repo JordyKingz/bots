@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
 
-  "name": "ValiTos",
+  "name": "Valitos",
   "description": "This extension will analyze terms of conditions",
-  "version": "1.0",
+  "version": "1.2",
   "icons": { "16": "favicon.png", "48": "favicon_128x128.png"},
   "browser_action": {
    "default_icon": "favicon_128x128.png",

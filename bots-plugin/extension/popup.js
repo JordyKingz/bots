@@ -5,8 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
     chrome.tabs.getSelected(null, function(tab) {
       d = document;
 
-      $.post( "http://peterschriever.com/api/v1/legal-text-check", function( result ) {
+      $.post( "http://peterschriever.com/api/v1/legal-text-check?url="+tab.url, function( result ) {
 
+        console.log(result);
         var safe = result.categoriesTotal - result.data.length;
         var notable = 0;
         var hazard = 0;
@@ -67,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       var pars = $.map(result.data, function(paragraphs) {
         $.each(paragraphs, function(paragraph){
-          // alert(JSON.stringify(paragraph.text));
+          // alert(JSON.stringify(paragraph));
         })
       });
 
