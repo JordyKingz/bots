@@ -34,6 +34,7 @@ class LegalText extends Model
     'privacy verklaring',
     'cookies',
     'spaarprogramma',
+    'disclaimer voor'
   ];
 
   public static function textByUrl($url) {
