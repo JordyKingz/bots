@@ -45,6 +45,9 @@
     <EmbeddedResource Include="Pages\SnippetPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pages\SnippetDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -78,6 +81,10 @@
     <Compile Include="Pages\SnippetPage.xaml.cs">
       <DependentUpon>SnippetPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SnippetDetailPage.xaml.cs">
+      <DependentUpon>SnippetDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PieChartContentPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
@@ -91,6 +98,9 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="ExifLib">
+      <HintPath>..\packages\ExifLib.PCL.1.0.1\lib\portable-net45+sl50+win+WindowsPhoneApp81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10\ExifLib.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

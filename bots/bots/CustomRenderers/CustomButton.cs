@@ -8,5 +8,8 @@ namespace bots
 		public CustomButton()
 		{
 		}
+
+		public void HandleTouch(object sender, EventArgs ea) { }
+
 	}
 }

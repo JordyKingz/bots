@@ -7,6 +7,15 @@ namespace bots
 {
 	public partial class App : Application
 	{
+		public class Snippet
+		{
+			public int guid;
+			public int snippetId;
+			public string text;
+		}
+
+
+
 		public class Data
 		{
 			public String name;
@@ -27,6 +36,9 @@ namespace bots
 			public String weight;
 		}
 		public static List<Data>  dat = new List<Data>();
+		public static Snippet snip;
+		public static int review;
+		public static string reviewComment;
 
 
 		public App()
@@ -36,17 +48,19 @@ namespace bots
 			_controller.BarBackgroundColor = Color.FromHex("#4A004F");
 			_controller.BarTextColor = Color.FromHex("#fafafa");
 			_controller.SetValue(NavigationPage.BarTextColorProperty, Color.White);
-
+			MainPage = _controller;
+			//standaard geen review meegeven
+			review = 3;
 
 
 			//MainPage = _controller;
 			var _tab = new Mainpage();
-			_tab.CurrentPage = _tab.Children[1];
+			//_tab.CurrentPage = _tab.Children[1];
 			var _nav = new NavigationPage(_tab);
 			_nav.BarBackgroundColor = Color.FromHex("#4A004F");
 			_nav.BarTextColor = Color.FromHex("#fafafa");
 			_nav.SetValue(NavigationPage.BarTextColorProperty, Color.White);
-			MainPage = _nav;
+			//MainPage = _nav;
 
 			//MainPage = new DetailPieChart().GetPageWithPieChart();
 

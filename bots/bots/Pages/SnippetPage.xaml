@@ -1,11 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:bots;assembly=bots" x:Class="bots.SnippetPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+ xmlns:local="clr-namespace:bots;assembly=bots" x:Class="bots.SnippetPage">
 	<ContentPage.Content>
 		<StackLayout VerticalOptions = "FillAndExpand" HorizontalOptions="Fill">
-			<StackLayout VerticalOptions="CenterAndExpand" Margin="20">
+			<StackLayout VerticalOptions="CenterAndExpand" Margin="30">
 				<local:h1Label TextColor="Black" Margin="20" FontFamily="OpenSans-Bold" StyleId="OpenSans-Bold" HorizontalTextAlignment="Center" Text="Check de voorwaarden hieronder!" FontSize="16" />
-				<local:CustomLabel TextColor="Black" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
-				
+				<local:CustomLabel x:Name="snipText" TextColor="Black" Text="Elk hulpmiddel X waaronder ook begrepen 
+e-mail example@email.com dat de consument of ondernemer in staat stelt om informatie die aan hem persoonlijk is gericht, op te slaan op een manier die toekomstige raadpleging of gebruik gedurende een periode die is afgestemd op het doel waarvoor de informatie is bestemd, en die ongewijzigde reproductie van de opgeslagen informatie mogelijk maakt." />
+				<Grid HorizontalOptions="Fill" HeightRequest="40" Margin="0, 70, 0, 0">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto" />
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="*" />
+					</Grid.ColumnDefinitions>
+
+						<StackLayout Orientation="Vertical" Grid.Row = "0" Grid.Column = "0" >
+							<Image x:Name="red" Source="redbutton.png" HeightRequest="50" Aspect="AspectFit"    >
+							    <Image.GestureRecognizers>
+							        <TapGestureRecognizer
+							                Tapped="OnTapGestureRedTapped"  />
+							  </Image.GestureRecognizers>
+							</Image>
+							<local:CustomLabel HorizontalTextAlignment ="Center"  Text = "Risicovol" FontSize = "12"  TextColor="#EA3B28" />
+						</StackLayout>
+
+
+						<StackLayout Orientation="Vertical" Grid.Row = "0" Grid.Column = "1" >
+							<Image Source="bluebutton.png" Aspect="AspectFit" HeightRequest="50"  Grid.Row = "0" Grid.Column = "1"   >
+							    <Image.GestureRecognizers>
+							        <TapGestureRecognizer
+							                Tapped="OnTapGestureBlueTapped"  />
+							  </Image.GestureRecognizers>
+							</Image>
+							<local:CustomLabel Text = "Weet niet" HorizontalTextAlignment ="Center" FontSize = "12" Grid.Row = "0" Grid.Column= "1" TextColor="#0598E2" />
+						</StackLayout>
+
+						<StackLayout Orientation="Vertical" Grid.Row = "0" Grid.Column = "2" >
+							<Image Source="greenbutton.png" HeightRequest="50" Aspect="AspectFit" Grid.Row = "0" Grid.Column = "2"   >
+							    <Image.GestureRecognizers>
+							        <TapGestureRecognizer
+							                Tapped="OnTapGestureGreenTapped"  />
+							  </Image.GestureRecognizers>
+							</Image>
+							<local:CustomLabel Text = "Veilig" HorizontalTextAlignment ="Center"  FontSize = "12" Grid.Row = "0" Grid.Column= "2" TextColor="#00AF8D" />
+						</StackLayout>
+					
+
+
+				</Grid>
 			</StackLayout>
 			
 		</StackLayout>

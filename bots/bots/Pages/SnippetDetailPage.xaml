@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:local="clr-namespace:bots;assembly=bots" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="bots.SnippetDetailPage">
+	<ContentPage.Content>
+		<StackLayout VerticalOptions = "Center" HorizontalOptions="Center">
+			<StackLayout VerticalOptions = "Center">
+				<local:CustomLabel Margin="40" Text ="Waarom vindt u dit risicovol?"/>
+				<Editor  TextColor="Black" HeightRequest = "150" BackgroundColor = "#f0f0f0" Margin="0,0,0,30"/>
+
+				<local:CustomButton x:Name="verzendbtn"  Text="Verzenden"  BorderRadius="0" HeightRequest= "40" BackgroundColor="#E3214F" TextColor="#fafafa" FontSize="18" />
+			</StackLayout>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

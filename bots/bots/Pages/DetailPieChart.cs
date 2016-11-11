@@ -19,8 +19,11 @@ namespace bots
 		}
 
 
+
 		public ContentPage GetPageWithPieChart()
 		{
+			
+			
 			// The root page of your application
 			List<App.Data> data = App.dat;
 

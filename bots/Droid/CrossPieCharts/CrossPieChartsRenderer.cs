@@ -1,7 +1,12 @@
+using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Net.Http;
+using System.Threading.Tasks;
 using com.refractored.monodroidtoolkit;
 using CrossPieCharts.FormsPlugin.Abstractions;
 using CrossPieCharts.FormsPlugin.Android;
+using Newtonsoft.Json;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
@@ -28,6 +33,12 @@ namespace CrossPieCharts.FormsPlugin.Android
 
             var progressBar = Element as CrossPieChartView;
 
+			if (bots.App.review <3)
+			{
+				PostSnippet();
+			}
+
+
             if (e.OldElement != null || progressBar == null)
             {
                 return;
@@ -49,6 +60,57 @@ namespace CrossPieCharts.FormsPlugin.Android
 
             SetNativeControl(progress);
         }
+
+
+
+		public async Task PostSnippet()
+		{
+
+			try
+			{
+				var guid = 0;
+				var snippetId = bots.App.snip.snippetId;
+				var review = bots.App.review;
+				var reviewComment = bots.App.reviewComment;
+				var client = new HttpClient();
+				var content = new FormUrlEncodedContent(new[]
+			{
+					new KeyValuePair<string, string>("guid",guid.ToString()),
+					new KeyValuePair<string, string>("snippertId",snippetId.ToString()),
+					new KeyValuePair<string, string>("review",review.ToString()),
+					new KeyValuePair<string, string>("reviewComment",reviewComment)
+			});
+				//var content = input; csharp-legal-text-check
+				var result = await client.PostAsync("http://peterschriever.com/api/v1/store-snippet", content).ConfigureAwait(false);
+
+				if (result.IsSuccessStatusCode)
+				{
+					var data = await result.Content.ReadAsStringAsync();
+					System.Diagnostics.Debug.WriteLine(data);
+					bots.App.review = 3;
+
+
+					//List<bots.App.Data> gegevens = JsonConvert.DeserializeObject<List<bots.App.Data>>(data);
+					//bots.App.snip = snip;
+
+
+					//App.dat = gegevens;
+
+
+				}
+
+
+
+			}
+			catch (Exception e)
+			{
+				//Console.WriteLine("Geen juist kenteken");
+
+
+			}
+		}
+
+
 
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
         {

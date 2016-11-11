@@ -6,6 +6,8 @@ namespace bots
 {
 	public partial class botsPage : ContentPage
 	{
+		
+
 		public botsPage()
 		{
 			InitializeComponent();
@@ -17,11 +19,24 @@ namespace bots
 		{
 			if (zoekveld.Text != "")
 			{
-				await Navigation.PushAsync(new DetailPieChart().GetPageWithPieChart());
+				if (App.dat.Count != 0)
+				{
+					OnPropertyChanged();
+					//await Navigation.PushAsync(new DetailPieChart().GetPageWithPieChart());
+					await Navigation.PushAsync(new SnippetPage());
+				}
+				else {
+					await DisplayAlert("Geen voorwaarde", "Er zijn geen voorwaarden gevonden. Contreel het ingevulde URL.", "OK");
+				}
 			}
 			else {
 				await DisplayAlert("Vul URL in", "Vul een URL in om verder te gaan.", "OK");
 			}
+		}
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+			//App.dat.Clear();
 		}
 }
 }
