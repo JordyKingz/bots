@@ -97,27 +97,39 @@ class LegalText extends Model
   public static function formatData($data) {
     // $categories = Category::get()->whereIn('name', $data);
     // return $data;
-    return $data;
-    $cats = [];
-    foreach ($data as $key => $value) {
-      $cats[] = Category::where('name', $key)->get()->find(1);
-    }
 
-    $catsParsed = [];
-    foreach ($cats as $key => $cat) {
-      if (empty($cat))
-        continue;
-
-      $catsParsed[] = [
+    $catBlocks = [];
+    foreach ($data as $catName => $catData) {
+      $cat = Category::where('name', $catName)->get()->first();
+      $catBlocks[] = [
         "name" => $cat['name'],
-        "problems" => $cat['problems'],
-        "paragraphs" => $cat['paragraphs'],
+        "problems" => $catData['problems'],
+        "paragraphs" => $catData['paragraphs']
       ];
     }
+
+    // $cats = [];
+    // foreach ($data as $key => $value) {
+    //   $cats[] = Category::where('name', $key)->get()->find(1);
+    // }
+    //
+    // $catsParsed = [];
+    // foreach ($cats as $key => $cat) {
+    //   if (empty($cat))
+    //     continue;
+    //
+    //   $catsParsed[] = [
+    //     "name" => $cat['name'],
+    //     "problems" => $cat['problems'],
+    //     "paragraphs" => $cat['paragraphs'],
+    //   ];
+    // }
+
+    // main arr
     $arr = [
       "status" => "success",
       "categoriesTotal" => Category::get()->count(),
-      "data" => $catsParsed,
+      "data" => $catBlocks,
     ];
     return $arr;
   }
@@ -131,7 +143,6 @@ class LegalText extends Model
     $words = self::getAnalysisWords();
 
     $results = self::performForeachHell($words, $parts);
-    $results["categoriesTotal"] = Category::get()->count();
     return $results;
   }
 
@@ -182,69 +193,70 @@ class LegalText extends Model
   }
 
   public static function performForeachHell($words, $sentences) {
-  $result = []; # Category list of list
-  foreach($words as $catindex => $cat) {
-    $weight = 0;
-    # loop through each category
-    foreach($cat as $catname => $problems){
-      # loop through each problem array
-      foreach($problems as $problemTag => $problemParent){
-        $w = $problemParent['weight'];
-        foreach($sentences as $paragraph){
-          # Loop through all the paragraphs
-          # No problem found so far right?
-          foreach($problemParent['keywords'] as $problem){
-            $keyword = $problem['word'];
-            $and = $problem['combination'] == "\u0001" ? true : false; # If true, phrase words should be and-ed: else or-ed
-            $found = false;
-            if(stripos($paragraph, $keyword) !== false){
-              # found but means nothing yet
-              if(count($problem['phrasewords']) == 0){
-                $found = true; # word is found and no phrasewords so yeah rip this shit
-              }
-              else{
-                if($and || !$and){ # Everything must be present haha joke always and
-                  $found = true;
-                  foreach($problem['phrasewords'] as $word){
-                    if(stripos($paragraph,$word['word']) === false){
-                      $found = false;
+    $result = []; # Category list of list
+    foreach($words as $catindex => $cat) {
+      $weight = 0;
+      # loop through each category
+      foreach($cat as $catname => $problems){
+        # loop through each problem array
+        foreach($problems as $problemTag => $problemParent){
+          $w = $problemParent['weight'];
+          foreach($sentences as $paragraph){
+            # Loop through all the paragraphs
+            # No problem found so far right?
+            foreach($problemParent['keywords'] as $problem){
+              $keyword = $problem['word'];
+              $and = $problem['combination'] == "\u0001" ? true : false; # If true, phrase words should be and-ed: else or-ed
+              $found = false;
+              if(stripos($paragraph, $keyword) !== false){
+                # found but means nothing yet
+                if(count($problem['phrasewords']) == 0){
+                  $found = true; # word is found and no phrasewords so yeah rip this shit
+                }
+                else{
+                  if($and || !$and){ # Everything must be present haha joke always and
+                    $found = true;
+                    foreach($problem['phrasewords'] as $word){
+                      if(stripos($paragraph,$word['word']) === false){
+                        $found = false;
+                      }
                     }
                   }
-                }
-                else{ # One must be present unless there are no phrasewords so revers and
-                  $found = false;
-                  foreach($problem['phrasewords'] as $word){
-                    if(stripos($paragraph,$word['word']) !== false){
-                      $found = true;
-                    }
+                  else{ # One must be present unless there are no phrasewords so revers and
+                    $found = false;
+                    foreach($problem['phrasewords'] as $word){
+                      if(stripos($paragraph,$word['word']) !== false){
+                        $found = true;
+                      }
 
+                    }
                   }
                 }
               }
-            }
-            if($found){
-              #Oeeiiiii
-              if(!isset($result[$catname]))
-                $result[$catname] = [];
-              if(!isset($result[$catname]['problems'])){
-                $result[$catname]['problems'] = [];
-                $result[$catname]['paragraphs'] = [];
+              if($found){
+                #Oeeiiiii
+                if(!isset($result[$catname]))
+                  $result[$catname] = [];
+                if(!isset($result[$catname]['problems'])){
+                  $result[$catname]['problems'] = [];
+                  $result[$catname]['paragraphs'] = [];
+                }
+                $problemArray = [
+                  'tag'=>$problemTag,
+                  'msg'=>$problemParent['message'],
+                  'weight'=>$w
+                ];
+                array_push($result[$catname]['problems'],$problemArray);
+                $paragraph = str_replace('\\n','',$paragraph);
+                if(!in_array($paragraph, $result[$catname]['paragraphs']))
+                  array_push($result[$catname]['paragraphs'],$paragraph);
               }
-              $problemArray = [
-                'tag'=>$problemTag,
-                'msg'=> $problemParent["message"],
-                'weight'=>$w
-              ];
-              array_push($result[$catname]['problems'],$problemArray);
-              $paragraph = str_replace('\\n', "", $paragraph);
-              array_push($result[$catname]['paragraphs'],$paragraph);
             }
           }
         }
       }
     }
-  }
-  return $result;
+    return $result;
 }
 
 
