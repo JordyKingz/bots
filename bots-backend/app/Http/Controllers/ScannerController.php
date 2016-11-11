@@ -24,7 +24,7 @@ class ScannerController extends Controller
     public function legalTextCheck(Request $request) {
       // retrieve legalText from Url
       $url = $request->url;
-      if ($url == '' || stripos($url, "http://" ) === false) {
+      if ($url == '') {
         return response()->json(["status" => "fail"]);
       }
       if(stripos($url, "peterschriever.com") !== false) {
@@ -69,7 +69,7 @@ class ScannerController extends Controller
     public function csLegalTextCheck(Request $request) {
       // retrieve legalText from Url
       $url = $request->url;
-      if ($url == '' || stripos($url, "http://" ) === false) {
+      if ($url == '') {
         return response()->json(["status" => "fail"]);
       }
       if(stripos($url, "peterschriever.com") !== false) {
