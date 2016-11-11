@@ -7,4 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Review extends Model
 {
     public $timestamps = false;
+
+    protected $fillable = ['guid', 'score', 'comment', 'snippetid'];
 }

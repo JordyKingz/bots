@@ -8,6 +8,7 @@ use App\Models\LegalText;
 use App\Models\Category;
 use App\Models\Snippet;
 use App\Models\Appuser;
+use App\Models\Review;
 
 class ScannerController extends Controller
 {
@@ -106,12 +107,20 @@ class ScannerController extends Controller
 
     public function storeSnippet(Request $request) {
       // send response of review
+      $review = Review::create([
+        "guid" => $request->guid,
+        "snippetid" => $request->snippetId,
+        "score" => $request->review,
+        "comment" => $request->comment
+      ]);
 
       $data = [
         "status" => "success",
         "snippetId" => $request->snippetId ? $request->snippetId : 1,
         "guid" => $request->guid ? $request->guid : 1,
         "receivedReview" => $request->review ? $request->review : "review not found in post",
+        "reviewComment" => $request->reviewComment ? $request->reviewComment : "comment was not added.",
+        "reviewId" => $review,
       ];
       return response()->json($data);
     }
