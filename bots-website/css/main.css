@@ -96,6 +96,7 @@
   }
 
 
+
   .btn-common:hover,
   .btn-common:focus{
     outline: none;
@@ -246,7 +247,10 @@
 }
 
 .social-icons ul li a:hover,
+
 .social-icons ul li a:focus{
+
+
   background: none;
 }
 
@@ -315,8 +319,10 @@
 }
 
 
+
 #header .navbar-inverse .navbar-nav  li.active > a,
 #header .navbar-inverse .navbar-nav  li.active > a:focus,
+
 #header .navbar-nav.navbar-right li > a:hover,
 .navbar-inverse .navbar-nav > .open > a {
   background-color: inherit;
@@ -374,6 +380,8 @@ ul.sub-menu {
 }
 
 .fa-angle-down{
+
+
   padding-left: 5px;
 }
 
@@ -455,12 +463,17 @@ ul.sub-menu {
 }
 
 .bottom h2{
+
 	color:#fff;
 }
 
 .bottom p, .bottom blockquote, .bottom address{
 	color:#fff;
+
+	color:#fff;
 }
+
+
 
 .testimonial .media{
   margin-top: 0;
@@ -526,7 +539,9 @@ ul.sub-menu {
   height: 40px;
 }
 
+
 .form-control:hover,
+
 .form-control:focus{
   border-color: #4fcccd;
   outline: none;
@@ -546,7 +561,9 @@ ul.sub-menu {
   padding: 10px;
 }
 
+
 .btn-submit:hover,
+
 .btn-submit:focus{
   color: #fff;
   outline: none;
@@ -557,7 +574,9 @@ ul.sub-menu {
 .copyright-text{
   margin-top: 70px;
   color: #fff;
+
   font-size: 16px;
+
   padding-bottom: 15px;
 }
 
@@ -600,7 +619,6 @@ ul.sub-menu {
 	bottom: 0;
 	margin-right: 240px;
 	margin-bottom: 50px;
-
 	width:330px;
 }
 
@@ -744,6 +762,7 @@ width: 100%;
 .action input{
 	padding:10px;
 	font-size:14px;
+
 	border-radius:20px;
 	min-width:400px;
 	text-align:center;
@@ -753,6 +772,7 @@ width: 100%;
 
 .action .title{
 	padding-top:80px;
+
 }
 
 .action .btn-common{
@@ -808,7 +828,8 @@ width: 100%;
 *******About Us Page******
 **************************/
 
-#action ,
+
+#action,
 #page-breadcrumb{
   position: relative;
 }
@@ -834,7 +855,6 @@ width: 100%;
 
 #company-information .padding-top{
   padding-top: 172px;
-
 }
 
 .single-service img {
@@ -965,7 +985,7 @@ width: 100%;
   background-position: 0 -18px;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
+
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
@@ -1178,7 +1198,9 @@ ul.elements li > i{
   -webkit-box-shadow: none;
 }
 
+
 .portfolio-filter li a:hover,
+
 .portfolio-filter li a:focus,
 .portfolio-filter li a.active {
   background: transparent;
@@ -1265,6 +1287,7 @@ ul.elements li > i{
 }
 
 .pagination li a:hover,
+
 .pagination .active a,
 .pagination a:active,
 .pagination .active a:hover,
@@ -1359,13 +1382,17 @@ Portfolio with right sidebar
   transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
   -webkit-transition: all 0.3s ease 0s;
+
   -o-transition: all 0.3s ease 0s;
 }
 
 .sidebar-item .media:last-child{
   border-bottom: 0px solid #ececec;
   padding-bottom: 0;
+
+  -o-transition: all 0.3s ease 0s;
 }
+
 
 .sidebar-item .media:hover{
   border-left: 2px solid #0099AE;
@@ -1599,7 +1626,9 @@ Blog Default
 .post-overlay span{
   position: absolute;
   left: 50%;
+
   bottom: 0;
+
   margin-left: -60px;
   -webkit-animation: fadeInUp 400ms;
   animation: fadeInUp 400ms;
@@ -1622,7 +1651,9 @@ Blog Default
   font-size: 30px;
   color: #fff;
   background: transparent;
+
   padding: 0;
+
   margin-left: 50px;
 }
 
@@ -1842,7 +1873,9 @@ Blog with right sidebar
 }
 
 .audiojs .scrubber{
+
   background: #fff;
+
   height: 8px;
   border-top: 0;
   width: 170px;
@@ -1937,7 +1970,9 @@ span.stButton_gradient,
 }
 
 .response-area h2{
+
   margin-top: 0;
+
   margin-bottom: 0;
   border-bottom: 0;
   padding-bottom: 20px;
@@ -2023,6 +2058,7 @@ span.stButton_gradient,
   color: #fff;
 }
 
+
 #map-section .contact-info h2,
 #map-section .contact-info a {
   color: #fff
@@ -2080,6 +2116,7 @@ span.stButton_gradient,
   text-align: center;
 }
 
+
 .single-price.price-one .plan-name,
 .single-price.price-two .plan-name,
 .single-price.price-three .plan-name,
@@ -2108,7 +2145,10 @@ span.stButton_gradient,
 }
 
 
+
 .single-price .plan-price {
+
+
   color: #fff;
   float: none;
   font-size: 14px;
@@ -2133,11 +2173,11 @@ span.stButton_gradient,
   display: block;
   margin-top: -6px;
 }
-
 .price-one .plan-price:after,
 .price-two .plan-price:after,
 .price-three .plan-price:after,
 .price-four .plan-price:after  {
+
   border-style: solid;
   border-width: 110px;
   content: "";
@@ -2166,7 +2206,8 @@ span.stButton_gradient,
   border-color: #5f7452 transparent transparent;
 }
 
-.single-price ul li,
+
+
 .single-table ul li {
   padding: 12px 18px;
   background-color: #f7f7f7;
@@ -2174,10 +2215,11 @@ span.stButton_gradient,
   color: #696969;
 }
 
-.single-price ul li span,
+
 .single-table ul li span {
   float: right;
 }
+
 
 .price-one .btn-buynow,
 .price-two .btn-buynow,
@@ -2233,6 +2275,7 @@ span.stButton_gradient,
   margin-bottom: 150px
 }
 
+
 .table-one .table-header,
 .table-two .table-header,
 .table-three .table-header,
@@ -2245,7 +2288,9 @@ span.stButton_gradient,
 
 .table-one .table-header {
   background-color:#0e76bc;
+
 }
+
 
 .table-two .table-header {
   background-color:#c03035;
@@ -2263,6 +2308,7 @@ span.stButton_gradient,
   position: relative;
   padding-top: 60px;
 }
+
 
 .table-one:before,
 .table-two:before,
@@ -2321,6 +2367,7 @@ span.stButton_gradient,
   padding: 0;
 }
 
+
 .table-one .btn-signup:after,
 .table-two .btn-signup:after,
 .table-three .btn-signup:after,
@@ -2331,6 +2378,7 @@ span.stButton_gradient,
   border-width: 78px 130px 0;
   height: 0;
   left: 0;
+
   top: -1px;
   width: 100%;
   z-index: -1;
@@ -2552,6 +2600,7 @@ span.stButton_gradient,
   transition: all 0.3s ease-in-out;
 }
 
+
 #error-page i.fa-twitter:hover,
 #coming-soon i.fa-twitter:hover,
 #error-page i.fa-twitter:hover,
@@ -2565,23 +2614,29 @@ span.stButton_gradient,
   transition: all 0.3s ease-in-out;
 }
 
+
 #error-page i.fa-facebook:hover,
 #coming-soon i.fa-facebook:hover{
   background-color:transparent;
+
   color: #314A87;
   border-color:#314A87;
 }
 
+
 #error-page i.fa-twitter:hover,
 #coming-soon i.fa-twitter:hover{
   background-color:transparent;
+
   color: #22BBF4;
   border-color:#22BBF4;
 }
 
+
 #error-page i.fa-google-plus:hover,
 #coming-soon i.fa-google-plus:hover{
   background-color:transparent;
+
   color: #DD4C3B;
   border-color:#DD4C3B;
 }
@@ -2807,7 +2862,9 @@ span.stButton_gradient,
 	right: -20px;
 	margin-top: 200px;
 	z-index: 5000;
+
 	min-width:110px;
+
 }
 
 .c3-target text {
@@ -2834,6 +2891,7 @@ span.stButton_gradient,
 span.badge{
 	position:absolute;
 right:15px;
+
 top:13px;
 }
 
