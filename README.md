@@ -1,5 +1,5 @@
 # Battle of the Schools 2016
-Het [https://letsgro.nl/] festival organiseerde een [https://letsgro.nl/battledeelnemers](hackaton).
+Het https://letsgro.nl/ festival organiseerde een [https://letsgro.nl/battledeelnemers](hackaton).
 
 ### Hanzehogeschool
 De Hanzehogeschool heeft een divers team samengesteld die ervoor moest zorgen om de casus te kunnen realiseren binnen de **48 uur**.
