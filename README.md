@@ -13,17 +13,17 @@ Tijdens de 48uur is er een applicatie geschreven om dit te realiseren. Deze appl
 ### Team
 Het team van de Hanzehogeschool bestaat uit studenten van *Communicatie, Interactive Media Technologies en ICT*:
 
-*[Frans Hoorn] - Marketing & student Communicatie;
-*[Nick Mulder] - Design & student Communicatie;
-*[Peter Schriever] - Programmeur & student ICT;
-*[Wouter Houtsma] - Programmeur & student ICT;
-*[Wouter Straver] - App developer & student IMT;
-*[Jordy de Koning] - Plugin developer & student IMT;
+- [Frans Hoorn] - Marketing & student Communicatie;
+- [Nick Mulder] - Design & student Communicatie;
+- [Peter Schriever] - Programmeur & student ICT;
+- [Wouter Houtsma] - Programmeur & student ICT;
+- [Wouter Straver] - App developer & student IMT;
+- [Jordy de Koning] - Plugin developer & student IMT;
 
 Daarnaast waren er docenten aanwezig en die willen we graag bedanken:
-*[Martijn Broekema] - Front-end developer & Docent MCD;
-*[Bart jan Hoekema] - Business strateeg & Docent BMI;
+- [Martijn Broekema] - Front-end developer & Docent MCD;
+- [Bart jan Hoekema] - Business strateeg & Docent BMI;
 
 Onze dank gaat uit naar:
-*[Mark C Hoogenboom] - IT Specialis;
-*[Corne Kox] - Samenstellen van het team;
+- [Mark C Hoogenboom] - IT Specialis;
+- [Corne Kox] - Samenstellen van het team;
